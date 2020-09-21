@@ -1,0 +1,46 @@
+
+## With R 3.1.0 or later, you can uncomment the following line to tell R to 
+## enable compilation with C++11 (where available)
+##
+## Also, OpenMP support in Armadillo prefers C++11 support. However, for wider
+## availability of the package we do not yet enforce this here.  It is however
+## recommended for client packages to set it.
+##
+## And with R 3.4.0, and RcppArmadillo 0.7.960.*, we turn C++11 on as OpenMP
+## support within Armadillo prefers / requires it
+#CXX_STD = CXX11
+
+##PKG_CXXFLAGS = $(SHLIB_OPENMP_CXXFLAGS) 
+##PKG_LIBS = $(SHLIB_OPENMP_CXXFLAGS) $(LAPACK_LIBS) $(BLAS_LIBS) $(FLIBS)
+
+#PKG_LIBS += -lsuperlu
+
+##PKG_LDFLAGS = /opt/local/Gurobi/gurobi810/linux64/lib/
+#PKG_LDFLAGS = /Library/gurobi810/mac64/lib
+
+#PKG_LIBS += -L$(PKG_LDFLAGS) -lgurobi81 -lgurobi_g++4.2
+#PKG_LIBS += -Wl,-rpath,$(PKG_LDFLAGS)
+
+#all: $(SHLIB)
+#	@if command -v install_name_tool; then install_name_tool -change libgurobi81.dylib @rpath/libgurobi81.dylib $(SHLIB); fi
+
+
+
+
+CXX_STD = CXX11
+PKG_LIBS = $(LAPACK_LIBS) $(BLAS_LIBS) $(FLIBS)
+#PKG_LIBS += -lsuperlu
+PKG_CXXFLAGS += -I../inst/include/
+#PKG_CXXFLAGS += -I../inst/include/optimlib
+#PKG_CPPFLAGS += -I"$(GUROBI_HOME)/include" -lm 
+#PKG_LIBS += -L"$(GUROBI_HOME)/lib" -lgurobi_c++ -lgurobi90
+#PKG_CPPFLAGS += -I/Library/gurobi903/mac64/include -lm
+#PKG_LIBS += -L/Library/gurobi903/mac64/lib -lgurobi_c++ -lgurobi90
+PKG_CPPFLAGS += -I$(GUROBI_HOME)/include #-lm 
+PKG_LIBS += -L$(GUROBI_HOME)/lib -lgurobi_c++ -lgurobi90
+
+## MUST ADD GUROBI_HOME=/path/to/gurobi to .Renviron file in users home directory 
+
+#PKG_LIBS = '$(R_HOME)/bin/Rscript -e "Rcpp:::LdFlags()"' $(SHLIB_OPENMP_CXXFLAGS) '$(R_HOME)/bin/Rscript -e "RcppProgress:::CxxFlags()"' and
+#PKG_CXXFLAGS +=-Ilibsrc $(SHLIB_OPENMP_CXXFLAGS) ‘$(R_HOME)/bin/Rscript
+#-e "RcppProgress:::CxxFlags()"‘

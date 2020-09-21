@@ -1,0 +1,5 @@
+useDynLib(VorVQ, .registration = TRUE)
+importFrom(Rcpp, evalCpp, cpp_object_initializer, loadModule)
+importFrom(RcppParallel, RcppParallelLibs)
+exportPattern("^[[:alpha:]]+")
+importFrom(Rdpack,reprompt)

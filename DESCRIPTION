@@ -1,0 +1,20 @@
+Package: VorVQ
+Type: Package
+Title: Geometry of Voronoi Tessellations of a Vector Quantizer
+Version: 1.0
+Date: 2019-05-09
+Author: Josh Taylor
+Maintainer: Josh Taylor <josh@somdisco.com>
+Description: Tools for describing the geometry of the first and second order Voronoi tessellation induced by the prototypes of a vector quantizer. 
+License: MIT + file LICENSE
+Depends: Rcpp (>= 1.0.0)
+Imports: Rcpp (>= 1.0.0), 
+         RcppArmadillo, 
+         RcppParallel, 
+         Rdpack, 
+         rcdd, 
+         igraph
+LinkingTo: Rcpp, RcppArmadillo, RcppParallel
+RoxygenNote: 7.1.1
+RdMacros: Rdpack
+LazyData: true

@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 3 A Complete Example | VorVQ</title>
+  <meta name="description" content="Chapter 3 A Complete Example | VorVQ" />
+  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 3 A Complete Example | VorVQ" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 3 A Complete Example | VorVQ" />
+  
+  
+  
+
+<meta name="author" content="Josh Taylor" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="secInstallation.html"/>
+<link rel="next" href="references.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
+<li class="chapter" data-level="1" data-path="secBackground.html"><a href="secBackground.html"><i class="fa fa-check"></i><b>1</b> Background</a><ul>
+<li class="chapter" data-level="1.1" data-path="secBackground.html"><a href="secBackground.html#voronoi-tessellations"><i class="fa fa-check"></i><b>1.1</b> Voronoi Tessellations</a></li>
+<li class="chapter" data-level="1.2" data-path="secBackground.html"><a href="secBackground.html#voronoi-half-plane-representations"><i class="fa fa-check"></i><b>1.2</b> Voronoi Half-Plane Representations</a></li>
+<li class="chapter" data-level="1.3" data-path="secBackground.html"><a href="secBackground.html#chebyshev-centers"><i class="fa fa-check"></i><b>1.3</b> Chebyshev Centers</a></li>
+<li class="chapter" data-level="1.4" data-path="secBackground.html"><a href="secBackground.html#prototype-proximity-graphs"><i class="fa fa-check"></i><b>1.4</b> Prototype Proximity Graphs</a></li>
+<li class="chapter" data-level="1.5" data-path="secBackground.html"><a href="secBackground.html#secEllipsoids"><i class="fa fa-check"></i><b>1.5</b> Polytope Approximating Ellipsoids</a><ul>
+<li class="chapter" data-level="1.5.1" data-path="secBackground.html"><a href="secBackground.html#dikin-ellipsoids"><i class="fa fa-check"></i><b>1.5.1</b> Dikin Ellipsoids</a></li>
+<li class="chapter" data-level="1.5.2" data-path="secBackground.html"><a href="secBackground.html#maximum-volume-inscribed-ellipsoids"><i class="fa fa-check"></i><b>1.5.2</b> Maximum Volume Inscribed Ellipsoids</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="secInstallation.html"><a href="secInstallation.html"><i class="fa fa-check"></i><b>2</b> Installation</a></li>
+<li class="chapter" data-level="3" data-path="a-complete-example.html"><a href="a-complete-example.html"><i class="fa fa-check"></i><b>3</b> A Complete Example</a><ul>
+<li class="chapter" data-level="3.1" data-path="a-complete-example.html"><a href="a-complete-example.html#initialization"><i class="fa fa-check"></i><b>3.1</b> Initialization</a></li>
+<li class="chapter" data-level="3.2" data-path="a-complete-example.html"><a href="a-complete-example.html#delaunay-adjacency"><i class="fa fa-check"></i><b>3.2</b> Delaunay Adjacency</a></li>
+<li class="chapter" data-level="3.3" data-path="a-complete-example.html"><a href="a-complete-example.html#voronoi-polytope-definitions"><i class="fa fa-check"></i><b>3.3</b> Voronoi Polytope Definitions</a></li>
+<li class="chapter" data-level="3.4" data-path="secBackground.html"><a href="secBackground.html#chebyshev-centers"><i class="fa fa-check"></i><b>3.4</b> Chebyshev Centers</a></li>
+<li class="chapter" data-level="3.5" data-path="secBackground.html"><a href="secBackground.html#dikin-ellipsoids"><i class="fa fa-check"></i><b>3.5</b> Dikin Ellipsoids</a></li>
+<li class="chapter" data-level="3.6" data-path="a-complete-example.html"><a href="a-complete-example.html#mvies"><i class="fa fa-check"></i><b>3.6</b> MVIEs</a></li>
+<li class="chapter" data-level="3.7" data-path="a-complete-example.html"><a href="a-complete-example.html#visualizations"><i class="fa fa-check"></i><b>3.7</b> Visualizations</a></li>
+<li class="chapter" data-level="3.8" data-path="a-complete-example.html"><a href="a-complete-example.html#saving-loading"><i class="fa fa-check"></i><b>3.8</b> Saving &amp; Loading</a></li>
+<li class="chapter" data-level="3.9" data-path="a-complete-example.html"><a href="a-complete-example.html#performing-all-voronoi-calculations"><i class="fa fa-check"></i><b>3.9</b> Performing All Voronoi Calculations</a></li>
+<li class="chapter" data-level="3.10" data-path="a-complete-example.html"><a href="a-complete-example.html#higher-dimensional-settings"><i class="fa fa-check"></i><b>3.10</b> Higher-Dimensional Settings</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">VorVQ</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="a-complete-example" class="section level1">
+<h1><span class="header-section-number">Chapter 3</span> A Complete Example</h1>
+<div id="initialization" class="section level2">
+<h2><span class="header-section-number">3.1</span> Initialization</h2>
+<p>We demonstrate the calculations on offer by <code>VorVQ</code> with a simple, two-dimensional synthethic dataset known as <code>CMIX9</code> which ships with the package for test purposes. The data are a sample (<span class="math inline">\(N = 5000\)</span>) from the 3-component Gaussian mixture defined in Table 1 of <span class="citation">[<a href="#ref-Chacon2009" role="doc-biblioref">12</a>]</span>. To facilitate demonstration the data were learned by a 10x10 Self-Organizing Map; the results of this learning (the learned prototypes, and the CADJ matrix) are available in the list variable <code>CMIX9</code>.</p>
+<p><code>VorVQ</code> is built around the internal C++ class <code>VOR</code>, which is a header-only class (found in the <code>/inst/include/</code> source package) envisioned to be entirely portable for future integration with other projects. This section will demonstrate how to interact with the class fields and methods to compute Voronoi-related quantities (a complete list of the fields and methods of this class exposed to the user can be found with <code>?VOR</code>). All methods are documented in usual R manner, with help functionality available via <code>?&lt;method_name&gt;</code>.</p>
+<p>To begin, an instance of the <code>VOR</code> class must be initialized with the prototype and CADJ matrix:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="a-complete-example.html#cb3-1"></a><span class="kw">library</span>(VorVQ)</span>
+<span id="cb3-2"><a href="a-complete-example.html#cb3-2"></a><span class="co">## Loading required package: Rcpp</span></span>
+<span id="cb3-3"><a href="a-complete-example.html#cb3-3"></a>vor =<span class="st"> </span>VOR<span class="op">$</span><span class="kw">new</span>()</span>
+<span id="cb3-4"><a href="a-complete-example.html#cb3-4"></a>vor<span class="op">$</span><span class="kw">initialize_VOR</span>(CMIX9<span class="op">$</span>W, CMIX9<span class="op">$</span>CADJ)</span>
+<span id="cb3-5"><a href="a-complete-example.html#cb3-5"></a><span class="co">## Initializing Voronoi object</span></span>
+<span id="cb3-6"><a href="a-complete-example.html#cb3-6"></a><span class="co">## ++ storing W and dimensions ... done</span></span>
+<span id="cb3-7"><a href="a-complete-example.html#cb3-7"></a><span class="co">## ++ setting global bounds = +/- 5% of W range ... done</span></span>
+<span id="cb3-8"><a href="a-complete-example.html#cb3-8"></a><span class="co">##    call $set_bounds to change</span></span>
+<span id="cb3-9"><a href="a-complete-example.html#cb3-9"></a><span class="co">## ++ storing CADJ ... done</span></span>
+<span id="cb3-10"><a href="a-complete-example.html#cb3-10"></a><span class="co">## ++ setting active vor1 indices (default to non-empty vor1 cells) ... done</span></span>
+<span id="cb3-11"><a href="a-complete-example.html#cb3-11"></a><span class="co">##    call $set_vor1_active to change</span></span>
+<span id="cb3-12"><a href="a-complete-example.html#cb3-12"></a><span class="co">## ++ setting active vor2 indices (default to non-empty vor2 cells) ... done</span></span>
+<span id="cb3-13"><a href="a-complete-example.html#cb3-13"></a><span class="co">##    call $set_vor2_active to change</span></span>
+<span id="cb3-14"><a href="a-complete-example.html#cb3-14"></a><span class="co">## Calculating Gabriel graph edges ...</span></span>
+<span id="cb3-15"><a href="a-complete-example.html#cb3-15"></a><span class="co">## 15%	30%	45%	60%	75%</span></span>
+<span id="cb3-16"><a href="a-complete-example.html#cb3-16"></a><span class="co">## 90%	100%</span></span>
+<span id="cb3-17"><a href="a-complete-example.html#cb3-17"></a><span class="co">## Computation time: 3.71732e-05 minutes</span></span></code></pre></div>
+<p>Note that when calling <code>library(VorVQ)</code> a new Gurobi environment is also initialized, which requires a valid Gurobi license as discussed in the <a href="secInstallation.html#secInstallation">Installation</a> section.</p>
+<p>Initialization stores the number of prototypes in the tessellation, the data dimension, and the input prototype and CADJ matrices, which can be accessed via</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="a-complete-example.html#cb4-1"></a><span class="kw">str</span>(vor<span class="op">$</span>W)</span>
+<span id="cb4-2"><a href="a-complete-example.html#cb4-2"></a><span class="co">##  num [1:100, 1:2] -1.976 -1.741 -1.453 -1.158 -0.741 ...</span></span>
+<span id="cb4-3"><a href="a-complete-example.html#cb4-3"></a><span class="co"># Data dimension </span></span>
+<span id="cb4-4"><a href="a-complete-example.html#cb4-4"></a>vor<span class="op">$</span>d</span>
+<span id="cb4-5"><a href="a-complete-example.html#cb4-5"></a><span class="co">## [1] 2</span></span>
+<span id="cb4-6"><a href="a-complete-example.html#cb4-6"></a><span class="co"># Number of prototypes</span></span>
+<span id="cb4-7"><a href="a-complete-example.html#cb4-7"></a>vor<span class="op">$</span>nW</span>
+<span id="cb4-8"><a href="a-complete-example.html#cb4-8"></a><span class="co">## [1] 100</span></span>
+<span id="cb4-9"><a href="a-complete-example.html#cb4-9"></a><span class="co"># The prototype and CADJ matrices, copied from those input</span></span>
+<span id="cb4-10"><a href="a-complete-example.html#cb4-10"></a><span class="kw">str</span>(vor<span class="op">$</span>W)</span>
+<span id="cb4-11"><a href="a-complete-example.html#cb4-11"></a><span class="co">##  num [1:100, 1:2] -1.976 -1.741 -1.453 -1.158 -0.741 ...</span></span>
+<span id="cb4-12"><a href="a-complete-example.html#cb4-12"></a><span class="kw">str</span>(vor<span class="op">$</span>CADJ)</span>
+<span id="cb4-13"><a href="a-complete-example.html#cb4-13"></a><span class="co">##  num [1:100, 1:100] 0 26 0 0 0 0 0 0 0 0 ...</span></span></code></pre></div>
+<p>Global, dimension-wise bounds are required to ensure the tessellated region is bounded (which, in turn, ensures the Voronoi polytopes are closed). During initialization, default bounds = +/- 5% of the dimension-wise range of the prototypes (in <code>W</code>) are saved to the field <code>lb</code> and <code>ub</code>:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="a-complete-example.html#cb5-1"></a>vor<span class="op">$</span>lb</span>
+<span id="cb5-2"><a href="a-complete-example.html#cb5-2"></a><span class="co">##           [,1]</span></span>
+<span id="cb5-3"><a href="a-complete-example.html#cb5-3"></a><span class="co">## [1,] -2.171620</span></span>
+<span id="cb5-4"><a href="a-complete-example.html#cb5-4"></a><span class="co">## [2,] -2.233343</span></span>
+<span id="cb5-5"><a href="a-complete-example.html#cb5-5"></a>vor<span class="op">$</span>ub</span>
+<span id="cb5-6"><a href="a-complete-example.html#cb5-6"></a><span class="co">##          [,1]</span></span>
+<span id="cb5-7"><a href="a-complete-example.html#cb5-7"></a><span class="co">## [1,] 2.139453</span></span>
+<span id="cb5-8"><a href="a-complete-example.html#cb5-8"></a><span class="co">## [2,] 2.511854</span></span></code></pre></div>
+<p>If different bounds are desired they can be set by passing new <span class="math inline">\(d\)</span>-dimensional lower and upper bound vectors to the method <code>set_bounds</code>. Here, we simply copy the existing bounds and invoke the <code>set_bounds</code> method for demonstration:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="a-complete-example.html#cb6-1"></a>newlb =<span class="st"> </span>vor<span class="op">$</span>lb </span>
+<span id="cb6-2"><a href="a-complete-example.html#cb6-2"></a>newub =<span class="st"> </span>vor<span class="op">$</span>ub </span>
+<span id="cb6-3"><a href="a-complete-example.html#cb6-3"></a>vor<span class="op">$</span><span class="kw">set_bounds</span>(newlb, newub)</span></code></pre></div>
+<p>Note that the range spanned by <code>lb</code> and <code>ub</code> <em>must include</em> the apparent range of the prototypes in <code>W</code>. When calling <code>set_bounds</code> manually a check of such will be performed, and an error returned if any prototype vector in <code>W</code> is found to be outside the given bounds.</p>
+<p>From the <code>CADJ</code> weights we can infer which of the first and second-order Voronoi cells of the tessellation by <code>W</code> contain training data. We call such cells “active”, and a default list of the active indices is computed and stored during initialization.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="a-complete-example.html#cb7-1"></a><span class="kw">str</span>(vor<span class="op">$</span>vor1_active)</span>
+<span id="cb7-2"><a href="a-complete-example.html#cb7-2"></a><span class="co">##  num [1:100, 1] 1 2 3 4 5 6 7 8 9 10 ...</span></span>
+<span id="cb7-3"><a href="a-complete-example.html#cb7-3"></a><span class="kw">str</span>(vor<span class="op">$</span>vor2_active)</span>
+<span id="cb7-4"><a href="a-complete-example.html#cb7-4"></a><span class="co">##  num [1:464, 1:2] 2 11 1 3 12 2 4 5 12 3 ...</span></span></code></pre></div>
+<p>The (1-based) indices in the above refer to the rows of W which generate the respective Voronoi cells. Computation of first and second-order Voronoi cell centers, MVIEs and Dikin ellipsoids is restricted to these “active cell” lists, which can be
+changed via <code>set_vor1_active</code> and <code>set_vor2_active</code>. For ex., to re-set the active lists to the defaults computed above:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="a-complete-example.html#cb8-1"></a>vor1_indices =<span class="st"> </span>vor<span class="op">$</span>vor1_active</span>
+<span id="cb8-2"><a href="a-complete-example.html#cb8-2"></a>vor<span class="op">$</span><span class="kw">set_vor1_active</span>(vor1_indices)</span>
+<span id="cb8-3"><a href="a-complete-example.html#cb8-3"></a></span>
+<span id="cb8-4"><a href="a-complete-example.html#cb8-4"></a>vor2_indices =<span class="st"> </span>vor<span class="op">$</span>vor2_active</span>
+<span id="cb8-5"><a href="a-complete-example.html#cb8-5"></a>vor<span class="op">$</span><span class="kw">set_vor2_active</span>(vor2_indices)</span></code></pre></div>
+<p>Note that only those first-order Voronoi cells <code>i</code> and <code>j</code> which are Delaunay adjacency define a valid second-order Voronoi cell. If the Delaunay adjacency matrix <code>DADJ</code> has already been calculated (see below), the <code>vor2_indices</code> list (as input to <code>set_vor2_active</code>) will be checked to ensure all given <code>vor2_indices</code> are Delaunay adjacent. If any are not an error will be returned.</p>
+<p>The expedite the calculation of the Delaunay adjacency (as discussed in section <a href="secBackground.html#secBackground">Background</a>), the Gabriel proximity graph of the the prototypes is automatically computed and stored in the field <code>GADJ</code> during initialization, which can be accessed via</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="a-complete-example.html#cb9-1"></a><span class="kw">str</span>(vor<span class="op">$</span>GADJ)</span>
+<span id="cb9-2"><a href="a-complete-example.html#cb9-2"></a><span class="co">##  num [1:100, 1:100] 0 1 0 0 0 0 0 0 0 0 ...</span></span></code></pre></div>
+<p>To compute a stand-alone Gabriel graph from a given prototype matrix, see <code>?Gabriel_ADJ</code>.</p>
+<p>Several parameters are needed to control the methods used in the <code>VorVQ</code> package. Default parameter values, which can be viewed via method <code>get_params()</code>, are set during initialization:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="a-complete-example.html#cb10-1"></a>vor<span class="op">$</span><span class="kw">get_params</span>()</span>
+<span id="cb10-2"><a href="a-complete-example.html#cb10-2"></a><span class="co">## $parallel</span></span>
+<span id="cb10-3"><a href="a-complete-example.html#cb10-3"></a><span class="co">## [1] TRUE</span></span>
+<span id="cb10-4"><a href="a-complete-example.html#cb10-4"></a><span class="co">## </span></span>
+<span id="cb10-5"><a href="a-complete-example.html#cb10-5"></a><span class="co">## $MVIE_maxiter</span></span>
+<span id="cb10-6"><a href="a-complete-example.html#cb10-6"></a><span class="co">## [1] 100</span></span>
+<span id="cb10-7"><a href="a-complete-example.html#cb10-7"></a><span class="co">## </span></span>
+<span id="cb10-8"><a href="a-complete-example.html#cb10-8"></a><span class="co">## $MVIE_tol</span></span>
+<span id="cb10-9"><a href="a-complete-example.html#cb10-9"></a><span class="co">## [1] 1e-04</span></span>
+<span id="cb10-10"><a href="a-complete-example.html#cb10-10"></a><span class="co">## </span></span>
+<span id="cb10-11"><a href="a-complete-example.html#cb10-11"></a><span class="co">## $MVIE_fix_c0</span></span>
+<span id="cb10-12"><a href="a-complete-example.html#cb10-12"></a><span class="co">## [1] FALSE</span></span>
+<span id="cb10-13"><a href="a-complete-example.html#cb10-13"></a><span class="co">## </span></span>
+<span id="cb10-14"><a href="a-complete-example.html#cb10-14"></a><span class="co">## $seed_DADJ</span></span>
+<span id="cb10-15"><a href="a-complete-example.html#cb10-15"></a><span class="co">## [1] TRUE</span></span></code></pre></div>
+<p>The list elements above indicate whether parallel computation is allowed (=T), and certain parameters required for MVIE computation: the max. number of iterations allowed, the convergence tolerance, and whether updating of the ellipsoid center is allowed (MVIE_fix_c0 = F) or prohibited (MVIE_fix_c0 = T). To set any of these parameters, pass a list object to the set function whose names match that of the parameter of interest. Partial lists are allowed. For ex., to disable and then re-enable parallel computation:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="a-complete-example.html#cb11-1"></a><span class="co"># Disable parallel  </span></span>
+<span id="cb11-2"><a href="a-complete-example.html#cb11-2"></a>vor<span class="op">$</span><span class="kw">set_params</span>(<span class="kw">list</span>(<span class="dt">parallel =</span> F))</span>
+<span id="cb11-3"><a href="a-complete-example.html#cb11-3"></a><span class="co"># Enable parallel </span></span>
+<span id="cb11-4"><a href="a-complete-example.html#cb11-4"></a>vor<span class="op">$</span><span class="kw">set_params</span>(<span class="kw">list</span>(<span class="dt">parallel =</span> T))</span></code></pre></div>
+</div>
+<div id="delaunay-adjacency" class="section level2">
+<h2><span class="header-section-number">3.2</span> Delaunay Adjacency</h2>
+<p>The Delaunay adjacency of first-order Voronoi cells is computed via the method <code>calc_DADJ</code> and stored in the field <code>DADJ</code>:</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="a-complete-example.html#cb12-1"></a><span class="co"># Calculate the Delaunay adjacency</span></span>
+<span id="cb12-2"><a href="a-complete-example.html#cb12-2"></a>vor<span class="op">$</span><span class="kw">calc_DADJ</span>() </span>
+<span id="cb12-3"><a href="a-complete-example.html#cb12-3"></a><span class="co">## Testing Delaunay graph edges ...</span></span>
+<span id="cb12-4"><a href="a-complete-example.html#cb12-4"></a><span class="co">## Round 1 (456 edges)	25%	50%	75%	100%	</span></span>
+<span id="cb12-5"><a href="a-complete-example.html#cb12-5"></a><span class="co">## Round 2 (45 edges)	25%	50%	75%	100%	</span></span>
+<span id="cb12-6"><a href="a-complete-example.html#cb12-6"></a><span class="co">## Tested 501 of 4950 possible edges</span></span>
+<span id="cb12-7"><a href="a-complete-example.html#cb12-7"></a><span class="co">## Computation time: 0.00135233 minutes</span></span>
+<span id="cb12-8"><a href="a-complete-example.html#cb12-8"></a><span class="co"># View its structure </span></span>
+<span id="cb12-9"><a href="a-complete-example.html#cb12-9"></a><span class="kw">str</span>(vor<span class="op">$</span>DADJ)</span>
+<span id="cb12-10"><a href="a-complete-example.html#cb12-10"></a><span class="co">##  num [1:100, 1:100] 0 1 0 0 0 0 0 0 0 0 ...</span></span></code></pre></div>
+<p>If a <code>DADJ</code> is available from an external source, it can be set (and, hence, avoid its potentially expensive re-calculation) via the <code>set_DADJ</code> method. Here, we extract the previously calculated <code>DADJ</code> and pass it back to the <code>VOR</code> object for demonstration of setting from an externally sourced adjacency matrix:</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="a-complete-example.html#cb13-1"></a>newDADJ =<span class="st"> </span>vor<span class="op">$</span>DADJ</span>
+<span id="cb13-2"><a href="a-complete-example.html#cb13-2"></a>vor<span class="op">$</span><span class="kw">set_DADJ</span>(newDADJ)</span></code></pre></div>
+<p>Note that while <code>DADJ</code> calculation for a vector quantizer in high dimension with many prototypes can be an expensive, it is a required step for <strong>all other computations</strong> exposed by <code>VorVQ</code>. Despite this, we have avoided its calculation during the <code>initialize_VOR</code> method to allow a user to supply an externally-computed <code>DADJ</code>, if one is available. To compute a stand-alone Delaunay graph from a given prototype matrix, see <code>?Delaunay_ADJ</code>.</p>
+</div>
+<div id="voronoi-polytope-definitions" class="section level2">
+<h2><span class="header-section-number">3.3</span> Voronoi Polytope Definitions</h2>
+<p>With <code>DADJ</code> set, we can now retrieve the half-plane representation of any first or second-order Voronoi polytope. <code>DADJ</code> is used to ensure only non-redundant constraints are included in the system <span class="math inline">\(Ax &lt;= b\)</span> defining each polytope. To guarantee the polytope is actually a polytope instead of a polyhedron (i.e., that it is closed), the global bounds stored in <code>lb</code> and <code>ub</code> are appended to the system. For example, to obtain the polytope definition for the first-order Voronoi cell generated by the prototype 1 (in the 1st row of <code>W</code>):</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="a-complete-example.html#cb14-1"></a>vor<span class="op">$</span><span class="kw">get_vor1_polytope</span>(<span class="dv">1</span>)</span>
+<span id="cb14-2"><a href="a-complete-example.html#cb14-2"></a><span class="co">## $A</span></span>
+<span id="cb14-3"><a href="a-complete-example.html#cb14-3"></a><span class="co">##             [,1]       [,2]</span></span>
+<span id="cb14-4"><a href="a-complete-example.html#cb14-4"></a><span class="co">## [1,]  0.23451935 -0.0529177</span></span>
+<span id="cb14-5"><a href="a-complete-example.html#cb14-5"></a><span class="co">## [2,]  0.05103292  0.4011529</span></span>
+<span id="cb14-6"><a href="a-complete-example.html#cb14-6"></a><span class="co">## [3,]  0.34175500  0.3073637</span></span>
+<span id="cb14-7"><a href="a-complete-example.html#cb14-7"></a><span class="co">## [4,]  1.00000000  0.0000000</span></span>
+<span id="cb14-8"><a href="a-complete-example.html#cb14-8"></a><span class="co">## [5,]  0.00000000  1.0000000</span></span>
+<span id="cb14-9"><a href="a-complete-example.html#cb14-9"></a><span class="co">## [6,] -1.00000000  0.0000000</span></span>
+<span id="cb14-10"><a href="a-complete-example.html#cb14-10"></a><span class="co">## [7,]  0.00000000 -1.0000000</span></span>
+<span id="cb14-11"><a href="a-complete-example.html#cb14-11"></a><span class="co">## </span></span>
+<span id="cb14-12"><a href="a-complete-example.html#cb14-12"></a><span class="co">## $b</span></span>
+<span id="cb14-13"><a href="a-complete-example.html#cb14-13"></a><span class="co">##            [,1]</span></span>
+<span id="cb14-14"><a href="a-complete-example.html#cb14-14"></a><span class="co">## [1,] -0.3798787</span></span>
+<span id="cb14-15"><a href="a-complete-example.html#cb14-15"></a><span class="co">## [2,] -0.4326060</span></span>
+<span id="cb14-16"><a href="a-complete-example.html#cb14-16"></a><span class="co">## [3,] -0.8864174</span></span>
+<span id="cb14-17"><a href="a-complete-example.html#cb14-17"></a><span class="co">## [4,]  2.1394531</span></span>
+<span id="cb14-18"><a href="a-complete-example.html#cb14-18"></a><span class="co">## [5,]  2.5118537</span></span>
+<span id="cb14-19"><a href="a-complete-example.html#cb14-19"></a><span class="co">## [6,]  2.1716202</span></span>
+<span id="cb14-20"><a href="a-complete-example.html#cb14-20"></a><span class="co">## [7,]  2.2333428</span></span></code></pre></div>
+<p>and to obtain the definition of the second-order polytope defined by prototypes 1 and 2:</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="a-complete-example.html#cb15-1"></a>vor<span class="op">$</span><span class="kw">get_vor2_polytope</span>(<span class="dv">1</span>,<span class="dv">2</span>)</span>
+<span id="cb15-2"><a href="a-complete-example.html#cb15-2"></a><span class="co">## $A</span></span>
+<span id="cb15-3"><a href="a-complete-example.html#cb15-3"></a><span class="co">##              [,1]       [,2]</span></span>
+<span id="cb15-4"><a href="a-complete-example.html#cb15-4"></a><span class="co">##  [1,]  0.23451935 -0.0529177</span></span>
+<span id="cb15-5"><a href="a-complete-example.html#cb15-5"></a><span class="co">##  [2,]  0.05103292  0.4011529</span></span>
+<span id="cb15-6"><a href="a-complete-example.html#cb15-6"></a><span class="co">##  [3,] -0.18348643  0.4540706</span></span>
+<span id="cb15-7"><a href="a-complete-example.html#cb15-7"></a><span class="co">##  [4,]  0.34175500  0.3073637</span></span>
+<span id="cb15-8"><a href="a-complete-example.html#cb15-8"></a><span class="co">##  [5,]  0.10723566  0.3602814</span></span>
+<span id="cb15-9"><a href="a-complete-example.html#cb15-9"></a><span class="co">##  [6,]  1.00000000  0.0000000</span></span>
+<span id="cb15-10"><a href="a-complete-example.html#cb15-10"></a><span class="co">##  [7,]  0.00000000  1.0000000</span></span>
+<span id="cb15-11"><a href="a-complete-example.html#cb15-11"></a><span class="co">##  [8,] -1.00000000  0.0000000</span></span>
+<span id="cb15-12"><a href="a-complete-example.html#cb15-12"></a><span class="co">##  [9,]  0.00000000 -1.0000000</span></span>
+<span id="cb15-13"><a href="a-complete-example.html#cb15-13"></a><span class="co">## </span></span>
+<span id="cb15-14"><a href="a-complete-example.html#cb15-14"></a><span class="co">## $b</span></span>
+<span id="cb15-15"><a href="a-complete-example.html#cb15-15"></a><span class="co">##              [,1]</span></span>
+<span id="cb15-16"><a href="a-complete-example.html#cb15-16"></a><span class="co">##  [1,] -0.37987869</span></span>
+<span id="cb15-17"><a href="a-complete-example.html#cb15-17"></a><span class="co">##  [2,] -0.43260597</span></span>
+<span id="cb15-18"><a href="a-complete-example.html#cb15-18"></a><span class="co">##  [3,] -0.05272729</span></span>
+<span id="cb15-19"><a href="a-complete-example.html#cb15-19"></a><span class="co">##  [4,] -0.88641741</span></span>
+<span id="cb15-20"><a href="a-complete-example.html#cb15-20"></a><span class="co">##  [5,] -0.50653872</span></span>
+<span id="cb15-21"><a href="a-complete-example.html#cb15-21"></a><span class="co">##  [6,]  2.13945314</span></span>
+<span id="cb15-22"><a href="a-complete-example.html#cb15-22"></a><span class="co">##  [7,]  2.51185371</span></span>
+<span id="cb15-23"><a href="a-complete-example.html#cb15-23"></a><span class="co">##  [8,]  2.17162020</span></span>
+<span id="cb15-24"><a href="a-complete-example.html#cb15-24"></a><span class="co">##  [9,]  2.23334278</span></span></code></pre></div>
+<p>Again, note that second-order polytopes only exist for pairs of Delaunay adjacent prototypes. In this example, first-order cells generated by prototypes 1 and 99 are not adjacenct in <span class="math inline">\(\mathbb{R}^2\)</span>, so their second-order polytope cannot be formed:</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="a-complete-example.html#cb16-1"></a>vor<span class="op">$</span><span class="kw">get_vor2_polytope</span>(<span class="dv">1</span>,<span class="dv">99</span>)</span>
+<span id="cb16-2"><a href="a-complete-example.html#cb16-2"></a><span class="co">## Error in vor$get_vor2_polytope(1, 99): DADJ(iidx,jidx)!=1: Voronoi cells iidx and jidx are not adjacenct, no second-order Voronoi polytope exists.</span></span></code></pre></div>
+<p>The definitions of first and second-order Voronoi polytopes are required to compute the Chebyshev centers, Dikin ellipsoids, and MVIEs; however, as they can be large in high-dimensional settings they are never stored but instead generated as needed with the above methods. To return stand-alone polytope definitions given a prototype and Delaunay adjacency matrix, see <code>?vor1_polytope</code> and <code>?vor2_polytope</code>.</p>
+</div>
+<div id="chebyshev-centers" class="section level2">
+<h2><span class="header-section-number">3.4</span> Chebyshev Centers</h2>
+<p>Computation of the Dikin and MVIE ellipsoids requires the specification of an interior point to each Voronoi polytope. For first-order cells this interior point is taken as the prototype which generated each cell, but interior points for second-order cells need to be supplied by the user. For ease, <code>VorVQ</code> provides the methods <code>calc_vor1_centers</code> and <code>calc_vor2_centers</code> to compute the Chebyshev center of each first and second-order Voronoi polytope:</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="a-complete-example.html#cb17-1"></a>vor<span class="op">$</span><span class="kw">calc_vor1_centers</span>()</span>
+<span id="cb17-2"><a href="a-complete-example.html#cb17-2"></a><span class="co">## Calculating Chebyshev centers for vor1 cells ...</span></span>
+<span id="cb17-3"><a href="a-complete-example.html#cb17-3"></a><span class="co">## 15%	30%	45%	60%	75%</span></span>
+<span id="cb17-4"><a href="a-complete-example.html#cb17-4"></a><span class="co">## 90%	100%</span></span>
+<span id="cb17-5"><a href="a-complete-example.html#cb17-5"></a><span class="co">## Computation time: 6.91658e-05 minutes</span></span>
+<span id="cb17-6"><a href="a-complete-example.html#cb17-6"></a><span class="kw">str</span>(vor<span class="op">$</span>vor1_centers)</span>
+<span id="cb17-7"><a href="a-complete-example.html#cb17-7"></a><span class="co">##  num [1:100, 1:2] -2.009 -1.763 -1.329 -1.123 -0.689 ...</span></span>
+<span id="cb17-8"><a href="a-complete-example.html#cb17-8"></a></span>
+<span id="cb17-9"><a href="a-complete-example.html#cb17-9"></a>vor<span class="op">$</span><span class="kw">calc_vor2_centers</span>()</span>
+<span id="cb17-10"><a href="a-complete-example.html#cb17-10"></a><span class="co">## Calculating Chebyshev centers for vor2 cells ...</span></span>
+<span id="cb17-11"><a href="a-complete-example.html#cb17-11"></a><span class="co">## 9%	19%	29%	39%	49%</span></span>
+<span id="cb17-12"><a href="a-complete-example.html#cb17-12"></a><span class="co">## 59%	69%	79%	89%	99%</span></span>
+<span id="cb17-13"><a href="a-complete-example.html#cb17-13"></a><span class="co">## 100%</span></span>
+<span id="cb17-14"><a href="a-complete-example.html#cb17-14"></a><span class="co">## Computation time: 0.000192458 minutes</span></span>
+<span id="cb17-15"><a href="a-complete-example.html#cb17-15"></a><span class="kw">str</span>(vor<span class="op">$</span>vor2_centers)</span>
+<span id="cb17-16"><a href="a-complete-example.html#cb17-16"></a><span class="co">##  num [1:464, 1:2] -1.91 -2.08 -2.02 -1.37 -1.68 ...</span></span></code></pre></div>
+<p>After calculation, the centers are stored in the rows of the matrix fields <code>vor1_centers</code> and <code>vor2_centers</code> (each has <span class="math inline">\(d\)</span> columns). Row <span class="math inline">\(i\)</span> of <code>vor1_centers</code> lists the center for the first-order Voronoi polytope defined by the <span class="math inline">\(i\)</span>-th element of the <code>vor1_active</code> list, and row <span class="math inline">\(i\)</span> of <code>vor2_centers</code> lists the center for the second-order Voronoi polytope defined by the <span class="math inline">\(i\)</span>-th row of the <code>vor2_active</code> list.</p>
+<p>There are, of course, other ways of obtaining polytope interior points. <code>VorVQ</code> allows the user to specify their own centers via the <code>set_vor1_centers</code> and <code>set_vor2_centers</code> methods. Here, we copy the previously computed center matrices, clear their respective fields in the <code>VOR</code> object, and re-set them:</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="a-complete-example.html#cb18-1"></a><span class="co"># Extract existing centers</span></span>
+<span id="cb18-2"><a href="a-complete-example.html#cb18-2"></a>vor1_centers =<span class="st"> </span>vor<span class="op">$</span>vor1_centers</span>
+<span id="cb18-3"><a href="a-complete-example.html#cb18-3"></a>vor2_centers =<span class="st"> </span>vor<span class="op">$</span>vor2_centers</span>
+<span id="cb18-4"><a href="a-complete-example.html#cb18-4"></a></span>
+<span id="cb18-5"><a href="a-complete-example.html#cb18-5"></a><span class="co"># Clear the centers fields</span></span>
+<span id="cb18-6"><a href="a-complete-example.html#cb18-6"></a>vor<span class="op">$</span><span class="kw">clear_vor1_centers</span>()</span>
+<span id="cb18-7"><a href="a-complete-example.html#cb18-7"></a><span class="kw">str</span>(vor<span class="op">$</span>vor1_centers)</span>
+<span id="cb18-8"><a href="a-complete-example.html#cb18-8"></a><span class="co">##  num[0 , 0 ]</span></span>
+<span id="cb18-9"><a href="a-complete-example.html#cb18-9"></a></span>
+<span id="cb18-10"><a href="a-complete-example.html#cb18-10"></a>vor<span class="op">$</span><span class="kw">clear_vor2_centers</span>()</span>
+<span id="cb18-11"><a href="a-complete-example.html#cb18-11"></a><span class="kw">str</span>(vor<span class="op">$</span>vor2_centers)</span>
+<span id="cb18-12"><a href="a-complete-example.html#cb18-12"></a><span class="co">##  num[0 , 0 ]</span></span>
+<span id="cb18-13"><a href="a-complete-example.html#cb18-13"></a></span>
+<span id="cb18-14"><a href="a-complete-example.html#cb18-14"></a><span class="co"># Re-assign </span></span>
+<span id="cb18-15"><a href="a-complete-example.html#cb18-15"></a>vor<span class="op">$</span><span class="kw">set_vor1_centers</span>(vor1_centers)</span>
+<span id="cb18-16"><a href="a-complete-example.html#cb18-16"></a><span class="co">## Checking interior points for vor1 cells ...</span></span>
+<span id="cb18-17"><a href="a-complete-example.html#cb18-17"></a><span class="co">## 15%	30%	45%	60%	75%</span></span>
+<span id="cb18-18"><a href="a-complete-example.html#cb18-18"></a><span class="co">## 90%	100%</span></span>
+<span id="cb18-19"><a href="a-complete-example.html#cb18-19"></a><span class="co">## Computation time: 1.2673e-05 minutes</span></span>
+<span id="cb18-20"><a href="a-complete-example.html#cb18-20"></a><span class="kw">str</span>(vor<span class="op">$</span>vor1_centers)</span>
+<span id="cb18-21"><a href="a-complete-example.html#cb18-21"></a><span class="co">##  num [1:100, 1:2] -2.009 -1.763 -1.329 -1.123 -0.689 ...</span></span>
+<span id="cb18-22"><a href="a-complete-example.html#cb18-22"></a></span>
+<span id="cb18-23"><a href="a-complete-example.html#cb18-23"></a>vor<span class="op">$</span><span class="kw">set_vor2_centers</span>(vor2_centers)</span>
+<span id="cb18-24"><a href="a-complete-example.html#cb18-24"></a><span class="co">## Checking interior points for vor2 cells ...</span></span>
+<span id="cb18-25"><a href="a-complete-example.html#cb18-25"></a><span class="co">## 9%	19%	29%	39%	49%</span></span>
+<span id="cb18-26"><a href="a-complete-example.html#cb18-26"></a><span class="co">## 59%	69%	79%	89%	99%</span></span>
+<span id="cb18-27"><a href="a-complete-example.html#cb18-27"></a><span class="co">## 100%</span></span>
+<span id="cb18-28"><a href="a-complete-example.html#cb18-28"></a><span class="co">## Computation time: 1.51737e-05 minutes</span></span>
+<span id="cb18-29"><a href="a-complete-example.html#cb18-29"></a><span class="kw">str</span>(vor<span class="op">$</span>vor2_centers)</span>
+<span id="cb18-30"><a href="a-complete-example.html#cb18-30"></a><span class="co">##  num [1:464, 1:2] -1.91 -2.08 -2.02 -1.37 -1.68 ...</span></span></code></pre></div>
+<p>Obviously, the supplied centers must be interior to each respective polytope. The <code>set_vor{1/2}_centers</code> methods will verify this by extracting the definition of each polytope and verifying that <span class="math inline">\(Ac \leq b\)</span>, for each center <span class="math inline">\(c\)</span>. If any supplied centers are <em>not</em> interior, an error will be returned.</p>
+<p>See <code>?polytope_Chebyshev_center</code> for computing Stand-alone Chebyshev centers, given an input half-plane representation of the polytope of the form <span class="math inline">\(Ax \leq b\)</span>.</p>
+</div>
+<div id="dikin-ellipsoids" class="section level2">
+<h2><span class="header-section-number">3.5</span> Dikin Ellipsoids</h2>
+<p>The Dikin ellipsoids for each Voronoi polytope listed in <code>vor1_active</code> and <code>vor2_active</code> are computed via the methods:</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="a-complete-example.html#cb19-1"></a><span class="co"># Vor1 Dikin</span></span>
+<span id="cb19-2"><a href="a-complete-example.html#cb19-2"></a>vor<span class="op">$</span><span class="kw">calc_vor1_Dikin</span>()</span>
+<span id="cb19-3"><a href="a-complete-example.html#cb19-3"></a><span class="co">## Calculating Dikin ellipsoids for vor1 cells ...</span></span>
+<span id="cb19-4"><a href="a-complete-example.html#cb19-4"></a><span class="co">## 15%	30%	45%	60%	75%</span></span>
+<span id="cb19-5"><a href="a-complete-example.html#cb19-5"></a><span class="co">## 90%	100%</span></span>
+<span id="cb19-6"><a href="a-complete-example.html#cb19-6"></a><span class="co">## Computation time: 1.19843e-05 minutes</span></span>
+<span id="cb19-7"><a href="a-complete-example.html#cb19-7"></a></span>
+<span id="cb19-8"><a href="a-complete-example.html#cb19-8"></a><span class="co"># Vor2 Dikin</span></span>
+<span id="cb19-9"><a href="a-complete-example.html#cb19-9"></a>vor<span class="op">$</span><span class="kw">calc_vor2_Dikin</span>()</span>
+<span id="cb19-10"><a href="a-complete-example.html#cb19-10"></a><span class="co">## Calculating Dikin ellipsoids for vor2 cells ...</span></span>
+<span id="cb19-11"><a href="a-complete-example.html#cb19-11"></a><span class="co">## 9%	19%	29%	39%	49%</span></span>
+<span id="cb19-12"><a href="a-complete-example.html#cb19-12"></a><span class="co">## 59%	69%	79%	89%	99%</span></span>
+<span id="cb19-13"><a href="a-complete-example.html#cb19-13"></a><span class="co">## 100%</span></span>
+<span id="cb19-14"><a href="a-complete-example.html#cb19-14"></a><span class="co">## Computation time: 1.39151e-05 minutes</span></span></code></pre></div>
+<p>The Dikin ellipsoid, computed at a particular interior point <span class="math inline">\(c\)</span> to each polytope, is defined by its ellipsoidal rotation matrix <span class="math inline">\(E\)</span> (see <a href="secBackground.html#secBackground">Background</a>). For each first-order Dikin ellipsoid, method <code>calc_vor1_Dikin</code> will take <span class="math inline">\(c\)</span> to be the corresponding center found in the rows of <code>vor1_centers</code>, if this field has been set by either <code>calc_vor1_centers</code> or <code>set_vor1_centers</code>; otherwise, <span class="math inline">\(c\)</span> is taken to be the corresponding prototype vector from <code>W</code>. The second-order Dikins are computed at whatever values are found in <code>vor2_centers</code> (so this field must be set prior to calculation of second-order Dikin ellipsoids, see above).</p>
+<p>The rotations defining the Dikin ellipsoids for each active Voronoi polytope are stored in the slices of the arrays <code>vor1_Dikin_E</code> (which has dimensions <span class="math inline">\(d \times d \times length(\text{vor1\_active})\)</span>) and <code>vor2_Dikin_E</code> (which has dimensions <span class="math inline">\(d \times d \times nrow(\text{vor2\_active})\)</span>).</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="a-complete-example.html#cb20-1"></a><span class="co"># Vor1 Dikin</span></span>
+<span id="cb20-2"><a href="a-complete-example.html#cb20-2"></a><span class="kw">str</span>(vor<span class="op">$</span>vor1_Dikin_E)</span>
+<span id="cb20-3"><a href="a-complete-example.html#cb20-3"></a><span class="co">##  num [1:2, 1:2, 1:100] 0.01182 -0.00156 -0.00156 0.02077 0.0341 ...</span></span>
+<span id="cb20-4"><a href="a-complete-example.html#cb20-4"></a></span>
+<span id="cb20-5"><a href="a-complete-example.html#cb20-5"></a><span class="co"># Vor2 Dikin</span></span>
+<span id="cb20-6"><a href="a-complete-example.html#cb20-6"></a><span class="kw">str</span>(vor<span class="op">$</span>vor2_Dikin_E)</span>
+<span id="cb20-7"><a href="a-complete-example.html#cb20-7"></a><span class="co">##  num [1:2, 1:2, 1:464] 0.01172 0.00206 0.00206 0.02736 0.00627 ...</span></span></code></pre></div>
+<p>See <code>?Dikin_ell</code> for computing a stand-alone Dikin ellipsoid given a polytope definition <span class="math inline">\(Ax \leq b\)</span> and an interior point <span class="math inline">\(c\)</span>.</p>
+</div>
+<div id="mvies" class="section level2">
+<h2><span class="header-section-number">3.6</span> MVIEs</h2>
+<p>The <strong>M</strong>aximum <strong>V</strong>olume <strong>I</strong>nscribed <strong>E</strong>llipsoids for each Voronoi polytope listed in <code>vor1_active</code> and <code>vor2_active</code> are computed via the methods:</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="a-complete-example.html#cb21-1"></a><span class="co"># Vor1 MVIE</span></span>
+<span id="cb21-2"><a href="a-complete-example.html#cb21-2"></a>vor<span class="op">$</span><span class="kw">calc_vor1_MVIE</span>()</span>
+<span id="cb21-3"><a href="a-complete-example.html#cb21-3"></a><span class="co">## Calculating max vol incribed ellipsoids for vor1 cells ...</span></span>
+<span id="cb21-4"><a href="a-complete-example.html#cb21-4"></a><span class="co">## 15%	30%	45%	60%	75%</span></span>
+<span id="cb21-5"><a href="a-complete-example.html#cb21-5"></a><span class="co">## 90%	100%</span></span>
+<span id="cb21-6"><a href="a-complete-example.html#cb21-6"></a><span class="co">## Computation time: 2.51134e-05 minutes</span></span>
+<span id="cb21-7"><a href="a-complete-example.html#cb21-7"></a></span>
+<span id="cb21-8"><a href="a-complete-example.html#cb21-8"></a><span class="co"># Vor2 MVIE</span></span>
+<span id="cb21-9"><a href="a-complete-example.html#cb21-9"></a>vor<span class="op">$</span><span class="kw">calc_vor2_MVIE</span>()</span>
+<span id="cb21-10"><a href="a-complete-example.html#cb21-10"></a><span class="co">## Calculating max vol incribed ellipsoids for vor2 cells ...</span></span>
+<span id="cb21-11"><a href="a-complete-example.html#cb21-11"></a><span class="co">## 9%	19%	29%	39%	49%</span></span>
+<span id="cb21-12"><a href="a-complete-example.html#cb21-12"></a><span class="co">## 59%	69%	79%	89%	99%</span></span>
+<span id="cb21-13"><a href="a-complete-example.html#cb21-13"></a><span class="co">## 100%</span></span>
+<span id="cb21-14"><a href="a-complete-example.html#cb21-14"></a><span class="co">## Computation time: 7.80857e-05 minutes</span></span></code></pre></div>
+<p>The MVIE for each polytope is defined by both an interior point <span class="math inline">\(c\)</span> and an ellipsoidal rotation matrix <span class="math inline">\(E\)</span> (see <a href="secBackground.html#secBackground">Background</a>). To initialize computation of each first-order MVIE, method <code>calc_vor1_MVIE</code> will take the starting <span class="math inline">\(c\)</span> to be the corresponding center found in the rows of <code>vor1_centers</code>, if this field has been set by either <code>calc_vor1_centers</code> or <code>set_vor1_centers</code>; otherwise, the starting <span class="math inline">\(c\)</span> is taken to be the corresponding prototype vector from <code>W</code>. The starting interior points for second-order MVIEs are taken from whatever center values are found in <code>vor2_centers</code> (so this field must be set prior to calculation of second-order MVIEs, see above).</p>
+<p>The MVIE centers resulting from the above computations for each active Voronoi polytope are stored in the rows of the matrix fields</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="a-complete-example.html#cb22-1"></a><span class="co"># Vor1</span></span>
+<span id="cb22-2"><a href="a-complete-example.html#cb22-2"></a><span class="kw">str</span>(vor<span class="op">$</span>vor1_MVIE_c)</span>
+<span id="cb22-3"><a href="a-complete-example.html#cb22-3"></a><span class="co">##  num [1:100, 1:2] -2.051 -1.751 -1.351 -1.141 -0.834 ...</span></span>
+<span id="cb22-4"><a href="a-complete-example.html#cb22-4"></a></span>
+<span id="cb22-5"><a href="a-complete-example.html#cb22-5"></a><span class="co"># Vor2</span></span>
+<span id="cb22-6"><a href="a-complete-example.html#cb22-6"></a><span class="kw">str</span>(vor<span class="op">$</span>vor2_MVIE_c)</span>
+<span id="cb22-7"><a href="a-complete-example.html#cb22-7"></a><span class="co">##  num [1:464, 1:2] -1.85 -2.06 -2.05 -1.41 -1.7 ...</span></span></code></pre></div>
+<p>while the rotation matrices are stored in the slices of the array fields</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="a-complete-example.html#cb23-1"></a><span class="co"># Vor 1</span></span>
+<span id="cb23-2"><a href="a-complete-example.html#cb23-2"></a><span class="kw">str</span>(vor<span class="op">$</span>vor1_MVIE_E)</span>
+<span id="cb23-3"><a href="a-complete-example.html#cb23-3"></a><span class="co">##  num [1:2, 1:2, 1:100] 0.0144 0.0311 0.0311 0.2919 0.0407 ...</span></span>
+<span id="cb23-4"><a href="a-complete-example.html#cb23-4"></a></span>
+<span id="cb23-5"><a href="a-complete-example.html#cb23-5"></a><span class="co"># Vor 2</span></span>
+<span id="cb23-6"><a href="a-complete-example.html#cb23-6"></a><span class="kw">str</span>(vor<span class="op">$</span>vor2_MVIE_E)</span>
+<span id="cb23-7"><a href="a-complete-example.html#cb23-7"></a><span class="co">##  num [1:2, 1:2, 1:464] 0.0183 0.049 0.049 0.3943 0.0127 ...</span></span></code></pre></div>
+<p>The status codes resulting from calling Zhang and Gao’s interior-point solution to the MVIE problem for each Voronoi polytope are stored in</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="a-complete-example.html#cb24-1"></a><span class="co"># Vor 1</span></span>
+<span id="cb24-2"><a href="a-complete-example.html#cb24-2"></a><span class="kw">str</span>(vor<span class="op">$</span>vor1_MVIE_status)</span>
+<span id="cb24-3"><a href="a-complete-example.html#cb24-3"></a><span class="co">##  int [1:100, 1] 0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb24-4"><a href="a-complete-example.html#cb24-4"></a></span>
+<span id="cb24-5"><a href="a-complete-example.html#cb24-5"></a><span class="co"># Vor 2</span></span>
+<span id="cb24-6"><a href="a-complete-example.html#cb24-6"></a><span class="kw">str</span>(vor<span class="op">$</span>vor2_MVIE_status)</span>
+<span id="cb24-7"><a href="a-complete-example.html#cb24-7"></a><span class="co">##  int [1:464, 1] 0 0 0 0 0 0 0 0 0 0 ...</span></span></code></pre></div>
+<p>See <code>?max_vol_inscr_ell</code> for interpretation of these status codes (0 indicates successful termination). Additional information about each MVIE is also computed and stored. For instance, the log-determinant of each rotation is stored in the elements of the vector fields</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="a-complete-example.html#cb25-1"></a><span class="co"># Vor 1</span></span>
+<span id="cb25-2"><a href="a-complete-example.html#cb25-2"></a><span class="kw">str</span>(vor<span class="op">$</span>vor1_MVIE_logdet)</span>
+<span id="cb25-3"><a href="a-complete-example.html#cb25-3"></a><span class="co">##  num [1:100, 1] -5.73 -4.15 -4.16 -6.74 -3.43 ...</span></span>
+<span id="cb25-4"><a href="a-complete-example.html#cb25-4"></a></span>
+<span id="cb25-5"><a href="a-complete-example.html#cb25-5"></a><span class="co"># Vor 2</span></span>
+<span id="cb25-6"><a href="a-complete-example.html#cb25-6"></a><span class="kw">str</span>(vor<span class="op">$</span>vor2_MVIE_logdet)</span>
+<span id="cb25-7"><a href="a-complete-example.html#cb25-7"></a><span class="co">##  num [1:464, 1] -5.34 -9.05 -5.98 -5.4 -11.62 ...</span></span></code></pre></div>
+<p>while the vector fields</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="a-complete-example.html#cb26-1"></a><span class="co"># Vor 1</span></span>
+<span id="cb26-2"><a href="a-complete-example.html#cb26-2"></a><span class="kw">str</span>(vor<span class="op">$</span>vor1_MVIE_volratio)</span>
+<span id="cb26-3"><a href="a-complete-example.html#cb26-3"></a><span class="co">##  num [1:100, 1] 0.01103 0.02432 0.02413 0.00664 0.03478 ...</span></span>
+<span id="cb26-4"><a href="a-complete-example.html#cb26-4"></a></span>
+<span id="cb26-5"><a href="a-complete-example.html#cb26-5"></a><span class="co"># Vor 2</span></span>
+<span id="cb26-6"><a href="a-complete-example.html#cb26-6"></a><span class="kw">str</span>(vor<span class="op">$</span>vor2_MVIE_volratio)</span>
+<span id="cb26-7"><a href="a-complete-example.html#cb26-7"></a><span class="co">##  num [1:464, 1] 0.015663 0.002445 0.011376 0.015148 0.000678 ...</span></span></code></pre></div>
+<p>store the ratios of the volumes of each active Voronoi MVIE to the sum of volumes of all active first or second-order MVIEs.</p>
+<p>The volume of a general <span class="math inline">\(d\)</span>-dimensional ellipsoid <span class="math inline">\(\mathcal{E}\)</span> with center <span class="math inline">\(c\)</span>, rotation <span class="math inline">\(E\)</span>, and radius <span class="math inline">\(r\)</span> defined by
+<span class="math display">\[ (x - c)^T E^{-1} (x-c) \leq r^2 \]</span>
+is given by<br />
+<span class="math display">\[ \text{Vol}(\mathcal{E}) = V_d |E|^{1/2} r^d \]</span>
+where <span class="math inline">\(V_d\)</span> is the volume of the <span class="math inline">\(d\)</span>-dimensional unit hypersphere. By convention (see <a href="secBackground.html#secBackground">Background</a>), the MVIE rotations <span class="math inline">\(E\)</span> are constructed such that <span class="math inline">\(r = 1\)</span> in the above. Since both <span class="math inline">\(V_d\)</span> and <span class="math inline">\(|E|\)</span> can grow quite large in higher-dimensional settings, only the log-determinant of each MVIE is stored (to avoid numerical overflow, in worst-case scenarios). Obviously, the actual first and second-order Voronoi MVIE volumes can be re-constructed easily from the <code>*_MVIE_logdet</code> fields and the above formula, if desired. The <code>*_MVIE_volratio</code> fields are provided as a convenience to the user to quickly determine the proportional volume of each MVIE (relative to all calculated), without having to explicitly exponentiate the potentially large values in <code>*_MVIE_logdet</code> to compute their relative proportions.</p>
+<p>See <code>?max_vol_inscr_ell</code> to compute a stand-alone MVIE given a polytope half-plane definition <span class="math inline">\(Ax \leq b\)</span> and a starting interior point <span class="math inline">\(c_0\)</span>. This help documentation also explains the meaning of the MVIE parameters (gettable / settable by methods <code>get_params</code> and <code>set_params</code>, see above).</p>
+<p>A final note: MVIE computation <strong>can be expensive</strong>, depending on the data dimension <span class="math inline">\(d\)</span> and the complexity of the Voronoi tessellation (i.e., the size of each of the linear inequality systems <span class="math inline">\(Ax \leq b\)</span> definining each Voronoi polytope). It is highly recommended to allow these computations to be performed in parallel (which is the default selection specified during <code>initialize_VOR</code>).</p>
+</div>
+<div id="visualizations" class="section level2">
+<h2><span class="header-section-number">3.7</span> Visualizations</h2>
+<p><code>VorVQ</code> also provides visualizations of Voronoi regions if the data dimension <span class="math inline">\(d = 2\)</span>. Each of the following functions allow many different customizations outlined in their respective <code>?vis_*</code> documentation.</p>
+<p>We start by visualizing the boundaries of the half-planes defining the polytope. While any polytope definition would suffice we select the definition of the polytope corresponding to prototype 13 as an example:</p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="a-complete-example.html#cb27-1"></a>poly =<span class="st"> </span>vor<span class="op">$</span><span class="kw">get_vor1_polytope</span>(<span class="dv">13</span>)</span>
+<span id="cb27-2"><a href="a-complete-example.html#cb27-2"></a><span class="kw">vis_polytope_constraints</span>(<span class="dt">A =</span> poly<span class="op">$</span>A, <span class="dt">b =</span> poly<span class="op">$</span>b)</span></code></pre></div>
+<p><img src="VorVQ.README_files/figure-html/unnamed-chunk-32-1.png" width="672" />
+The polytope itself (with redundant sections of the half-plane boundaries removed) can be visualized via</p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="a-complete-example.html#cb28-1"></a><span class="kw">vis_polytope</span>(<span class="dt">A =</span> poly<span class="op">$</span>A, <span class="dt">b =</span> poly<span class="op">$</span>b, <span class="dt">vertex.cex =</span> <span class="dv">0</span>)</span></code></pre></div>
+<p><img src="VorVQ.README_files/figure-html/unnamed-chunk-33-1.png" width="672" /></p>
+<p>To visualize all (active) first or second-order Voronoi cells in a tessellation:</p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="a-complete-example.html#cb29-1"></a><span class="kw">vis_vor1_polytopes</span>(<span class="dt">VOR =</span> vor, <span class="dt">add =</span> F, <span class="dt">vertex.cex =</span> <span class="dv">0</span>)</span>
+<span id="cb29-2"><a href="a-complete-example.html#cb29-2"></a><span class="kw">title</span>(<span class="st">&quot;Vor 1&quot;</span>)</span>
+<span id="cb29-3"><a href="a-complete-example.html#cb29-3"></a><span class="kw">vis_vor2_polytopes</span>(<span class="dt">VOR =</span> vor, <span class="dt">add =</span> F, <span class="dt">vertex.cex =</span> <span class="dv">0</span>)</span>
+<span id="cb29-4"><a href="a-complete-example.html#cb29-4"></a><span class="kw">title</span>(<span class="st">&quot;Vor 2&quot;</span>)</span></code></pre></div>
+<p><img src="VorVQ.README_files/figure-html/unnamed-chunk-34-1.png" width="50%" /><img src="VorVQ.README_files/figure-html/unnamed-chunk-34-2.png" width="50%" /></p>
+<p>The <code>vis_vor*</code> visualizations are designed to allow layering, just like base R plots. Here, we plot both first (blue) and second-order (gray) Voronoi tessellations together:</p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="a-complete-example.html#cb30-1"></a><span class="kw">vis_vor2_polytopes</span>(<span class="dt">VOR =</span> vor, <span class="dt">add =</span> F, <span class="dt">vertex.cex =</span> <span class="dv">0</span>)</span>
+<span id="cb30-2"><a href="a-complete-example.html#cb30-2"></a><span class="kw">vis_vor1_polytopes</span>(<span class="dt">VOR =</span> vor, <span class="dt">add =</span> T, <span class="dt">vertex.cex =</span> <span class="dv">0</span>, <span class="dt">edge.col =</span> <span class="kw">tableau20</span>(<span class="st">&quot;blue&quot;</span>))</span>
+<span id="cb30-3"><a href="a-complete-example.html#cb30-3"></a><span class="kw">title</span>(<span class="st">&quot;Vor 1 and 2&quot;</span>)</span></code></pre></div>
+<p><img src="VorVQ.README_files/figure-html/unnamed-chunk-35-1.png" width="672" /></p>
+<p>User-supplied text annotations can be placed at the centers of each Voronoi cell with the <code>vis_vor_annotate</code> functions. By default, the functions called without any text supplied will annotate each Voronoi cell with its id:</p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="a-complete-example.html#cb31-1"></a><span class="kw">vis_vor1_polytopes</span>(<span class="dt">VOR =</span> vor, <span class="dt">add =</span> F, <span class="dt">vertex.cex =</span> <span class="dv">0</span>)</span>
+<span id="cb31-2"><a href="a-complete-example.html#cb31-2"></a><span class="kw">vis_vor1_annotate</span>(<span class="dt">VOR =</span> vor, <span class="dt">add =</span> T, <span class="dt">text.col =</span> <span class="kw">tableau20</span>(<span class="st">&quot;blue&quot;</span>))</span>
+<span id="cb31-3"><a href="a-complete-example.html#cb31-3"></a><span class="kw">title</span>(<span class="st">&quot;Vor 1&quot;</span>)</span>
+<span id="cb31-4"><a href="a-complete-example.html#cb31-4"></a></span>
+<span id="cb31-5"><a href="a-complete-example.html#cb31-5"></a><span class="co"># Vor 2</span></span>
+<span id="cb31-6"><a href="a-complete-example.html#cb31-6"></a><span class="kw">vis_vor2_polytopes</span>(<span class="dt">VOR =</span> vor, <span class="dt">add =</span> F, <span class="dt">vertex.cex =</span> <span class="dv">0</span>)</span>
+<span id="cb31-7"><a href="a-complete-example.html#cb31-7"></a><span class="kw">vis_vor2_annotate</span>(<span class="dt">VOR =</span> vor, <span class="dt">add =</span> T, <span class="dt">text.col =</span> <span class="kw">tableau20</span>(<span class="st">&quot;green&quot;</span>))</span>
+<span id="cb31-8"><a href="a-complete-example.html#cb31-8"></a><span class="kw">title</span>(<span class="st">&quot;Vor 2&quot;</span>)</span></code></pre></div>
+<p><img src="VorVQ.README_files/figure-html/unnamed-chunk-36-1.png" width="50%" /><img src="VorVQ.README_files/figure-html/unnamed-chunk-36-2.png" width="50%" /></p>
+<p>Approximating ellipsoids (if previously calculated and stored) can also be viewed in situ:</p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="a-complete-example.html#cb32-1"></a><span class="co"># Vor 1 Dikin </span></span>
+<span id="cb32-2"><a href="a-complete-example.html#cb32-2"></a><span class="kw">vis_vor1_polytopes</span>(<span class="dt">VOR =</span> vor, <span class="dt">add =</span> F, <span class="dt">vertex.cex =</span> <span class="dv">0</span>)</span>
+<span id="cb32-3"><a href="a-complete-example.html#cb32-3"></a><span class="kw">vis_vor1_Dikin</span>(<span class="dt">VOR =</span> vor, <span class="dt">add =</span> T)</span>
+<span id="cb32-4"><a href="a-complete-example.html#cb32-4"></a></span>
+<span id="cb32-5"><a href="a-complete-example.html#cb32-5"></a><span class="co"># Vor 2 Dikin </span></span>
+<span id="cb32-6"><a href="a-complete-example.html#cb32-6"></a><span class="kw">vis_vor2_polytopes</span>(<span class="dt">VOR =</span> vor, <span class="dt">add =</span> F, <span class="dt">vertex.cex =</span> <span class="dv">0</span>)</span>
+<span id="cb32-7"><a href="a-complete-example.html#cb32-7"></a><span class="kw">vis_vor2_Dikin</span>(<span class="dt">VOR =</span> vor, <span class="dt">add =</span> T)</span></code></pre></div>
+<p><img src="VorVQ.README_files/figure-html/unnamed-chunk-37-1.png" width="50%" /><img src="VorVQ.README_files/figure-html/unnamed-chunk-37-2.png" width="50%" /></p>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="a-complete-example.html#cb33-1"></a><span class="co"># Vor 1 MVIE</span></span>
+<span id="cb33-2"><a href="a-complete-example.html#cb33-2"></a><span class="kw">vis_vor1_polytopes</span>(<span class="dt">VOR =</span> vor, <span class="dt">add =</span> F, <span class="dt">vertex.cex =</span> <span class="dv">0</span>)</span>
+<span id="cb33-3"><a href="a-complete-example.html#cb33-3"></a><span class="kw">vis_vor1_MVIE</span>(<span class="dt">VOR =</span> vor, <span class="dt">add =</span> T)</span>
+<span id="cb33-4"><a href="a-complete-example.html#cb33-4"></a></span>
+<span id="cb33-5"><a href="a-complete-example.html#cb33-5"></a><span class="co"># Vor 2 MVIE </span></span>
+<span id="cb33-6"><a href="a-complete-example.html#cb33-6"></a><span class="kw">vis_vor2_polytopes</span>(<span class="dt">VOR =</span> vor, <span class="dt">add =</span> F, <span class="dt">vertex.cex =</span> <span class="dv">0</span>)</span>
+<span id="cb33-7"><a href="a-complete-example.html#cb33-7"></a><span class="kw">vis_vor2_MVIE</span>(<span class="dt">VOR =</span> vor, <span class="dt">add =</span> T)</span></code></pre></div>
+<p><img src="VorVQ.README_files/figure-html/unnamed-chunk-38-1.png" width="50%" /><img src="VorVQ.README_files/figure-html/unnamed-chunk-38-2.png" width="50%" /></p>
+</div>
+<div id="saving-loading" class="section level2">
+<h2><span class="header-section-number">3.8</span> Saving &amp; Loading</h2>
+<p>VOR objects can be saved to disk for future access via the <code>save</code> method. This method requires a user-specified file name and <strong>must have extension <code>.vor</code></strong>.</p>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="a-complete-example.html#cb34-1"></a>vor<span class="op">$</span><span class="kw">save</span>(<span class="st">&quot;cmix9.vor&quot;</span>)</span></code></pre></div>
+<p>While the file has extension <code>.vor</code> it is saved in R’s binary <code>.rds</code> format as a list. R’s <code>readRDS</code> command <em>can</em> be used to return this list to the user’s environment in a new R session, but the pointers to the C++ object are destroyed on exit of the first session. The <code>load</code> method will properly restore a previously saved VOR object to memory. Once loaded all object methods are available. For example, we can load the previously saved VOR object, re-compute its centers, and re-plot its first-order Dikin ellipsoids</p>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="a-complete-example.html#cb35-1"></a>vor2 =<span class="st"> </span>VorVQ<span class="op">::</span>VOR<span class="op">$</span><span class="kw">new</span>()</span>
+<span id="cb35-2"><a href="a-complete-example.html#cb35-2"></a>vor2<span class="op">$</span><span class="kw">load</span>(<span class="st">&quot;cmix9.vor&quot;</span>)</span>
+<span id="cb35-3"><a href="a-complete-example.html#cb35-3"></a></span>
+<span id="cb35-4"><a href="a-complete-example.html#cb35-4"></a><span class="co"># Re-compute centers</span></span>
+<span id="cb35-5"><a href="a-complete-example.html#cb35-5"></a>vor2<span class="op">$</span><span class="kw">calc_vor1_centers</span>()</span>
+<span id="cb35-6"><a href="a-complete-example.html#cb35-6"></a><span class="co">## Calculating Chebyshev centers for vor1 cells ...</span></span>
+<span id="cb35-7"><a href="a-complete-example.html#cb35-7"></a><span class="co">## 15%	30%	45%	60%	75%</span></span>
+<span id="cb35-8"><a href="a-complete-example.html#cb35-8"></a><span class="co">## 90%	100%</span></span>
+<span id="cb35-9"><a href="a-complete-example.html#cb35-9"></a><span class="co">## Computation time: 9.09198e-05 minutes</span></span>
+<span id="cb35-10"><a href="a-complete-example.html#cb35-10"></a></span>
+<span id="cb35-11"><a href="a-complete-example.html#cb35-11"></a><span class="co"># Check that it is the same</span></span>
+<span id="cb35-12"><a href="a-complete-example.html#cb35-12"></a><span class="kw">vis_vor1_polytopes</span>(<span class="dt">VOR =</span> vor2, <span class="dt">add =</span> F, <span class="dt">vertex.cex =</span> <span class="dv">0</span>)</span>
+<span id="cb35-13"><a href="a-complete-example.html#cb35-13"></a><span class="kw">vis_vor1_Dikin</span>(<span class="dt">VOR =</span> vor2, <span class="dt">add =</span> T)</span></code></pre></div>
+<p><img src="VorVQ.README_files/figure-html/ck-load-1.png" width="672" /></p>
+</div>
+<div id="performing-all-voronoi-calculations" class="section level2">
+<h2><span class="header-section-number">3.9</span> Performing All Voronoi Calculations</h2>
+<p>If the results of all Voronoi calculations exposed by <code>VorVQ</code> are desired the wrapper method <code>calc_all</code> can be called just after VOR object initialition. Internally, this wrapper calls the following previously discussed methods, in the given order:</p>
+<ul>
+<li><code>calc_DADJ()</code></li>
+<li><code>set_vor2_centers()</code></li>
+<li><code>calc_vor1_Dikin()</code></li>
+<li><code>calc_vor2_Dikin()</code></li>
+<li><code>calc_vor1_MVIE()</code></li>
+<li><code>calc_vor2_MVIE()</code>.</li>
+</ul>
+<p>Note that <code>calc_vor1_centers</code> is excluded from the <code>calc_all</code> wrapper as it is not mandatory (the prototype vectors themselves are used as interior points for first-order Voronoi cells by default). As an example, we can re-initialize the VOR object and repeat all calculations above with one call to <code>calc_all</code>:</p>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="a-complete-example.html#cb36-1"></a>vor =<span class="st"> </span>VOR<span class="op">$</span><span class="kw">new</span>()</span>
+<span id="cb36-2"><a href="a-complete-example.html#cb36-2"></a>vor<span class="op">$</span><span class="kw">initialize_VOR</span>(CMIX9<span class="op">$</span>W, CMIX9<span class="op">$</span>CADJ)</span>
+<span id="cb36-3"><a href="a-complete-example.html#cb36-3"></a><span class="co">## Initializing Voronoi object</span></span>
+<span id="cb36-4"><a href="a-complete-example.html#cb36-4"></a><span class="co">## ++ storing W and dimensions ... done</span></span>
+<span id="cb36-5"><a href="a-complete-example.html#cb36-5"></a><span class="co">## ++ setting global bounds = +/- 5% of W range ... done</span></span>
+<span id="cb36-6"><a href="a-complete-example.html#cb36-6"></a><span class="co">##    call $set_bounds to change</span></span>
+<span id="cb36-7"><a href="a-complete-example.html#cb36-7"></a><span class="co">## ++ storing CADJ ... done</span></span>
+<span id="cb36-8"><a href="a-complete-example.html#cb36-8"></a><span class="co">## ++ setting active vor1 indices (default to non-empty vor1 cells) ... done</span></span>
+<span id="cb36-9"><a href="a-complete-example.html#cb36-9"></a><span class="co">##    call $set_vor1_active to change</span></span>
+<span id="cb36-10"><a href="a-complete-example.html#cb36-10"></a><span class="co">## ++ setting active vor2 indices (default to non-empty vor2 cells) ... done</span></span>
+<span id="cb36-11"><a href="a-complete-example.html#cb36-11"></a><span class="co">##    call $set_vor2_active to change</span></span>
+<span id="cb36-12"><a href="a-complete-example.html#cb36-12"></a><span class="co">## Calculating Gabriel graph edges ...</span></span>
+<span id="cb36-13"><a href="a-complete-example.html#cb36-13"></a><span class="co">## 15%	30%	45%	60%	75%</span></span>
+<span id="cb36-14"><a href="a-complete-example.html#cb36-14"></a><span class="co">## 90%	100%</span></span>
+<span id="cb36-15"><a href="a-complete-example.html#cb36-15"></a><span class="co">## Computation time: 1.3893e-05 minutes</span></span>
+<span id="cb36-16"><a href="a-complete-example.html#cb36-16"></a>vor<span class="op">$</span><span class="kw">calc_all</span>()</span>
+<span id="cb36-17"><a href="a-complete-example.html#cb36-17"></a><span class="co">## Testing Delaunay graph edges ...</span></span>
+<span id="cb36-18"><a href="a-complete-example.html#cb36-18"></a><span class="co">## Round 1 (456 edges)	25%	50%	75%	100%	</span></span>
+<span id="cb36-19"><a href="a-complete-example.html#cb36-19"></a><span class="co">## Round 2 (45 edges)	25%	50%	75%	100%	</span></span>
+<span id="cb36-20"><a href="a-complete-example.html#cb36-20"></a><span class="co">## Tested 501 of 4950 possible edges</span></span>
+<span id="cb36-21"><a href="a-complete-example.html#cb36-21"></a><span class="co">## Computation time: 0.000461954 minutes</span></span>
+<span id="cb36-22"><a href="a-complete-example.html#cb36-22"></a><span class="co">## </span></span>
+<span id="cb36-23"><a href="a-complete-example.html#cb36-23"></a><span class="co">## Calculating Chebyshev centers for vor2 cells ...</span></span>
+<span id="cb36-24"><a href="a-complete-example.html#cb36-24"></a><span class="co">## 9%	19%	29%	39%	49%</span></span>
+<span id="cb36-25"><a href="a-complete-example.html#cb36-25"></a><span class="co">## 59%	69%	79%	89%	99%</span></span>
+<span id="cb36-26"><a href="a-complete-example.html#cb36-26"></a><span class="co">## 100%</span></span>
+<span id="cb36-27"><a href="a-complete-example.html#cb36-27"></a><span class="co">## Computation time: 0.000200537 minutes</span></span>
+<span id="cb36-28"><a href="a-complete-example.html#cb36-28"></a><span class="co">## </span></span>
+<span id="cb36-29"><a href="a-complete-example.html#cb36-29"></a><span class="co">## Calculating Dikin ellipsoids for vor1 cells ...</span></span>
+<span id="cb36-30"><a href="a-complete-example.html#cb36-30"></a><span class="co">## 15%	30%	45%	60%	75%</span></span>
+<span id="cb36-31"><a href="a-complete-example.html#cb36-31"></a><span class="co">## 90%	100%</span></span>
+<span id="cb36-32"><a href="a-complete-example.html#cb36-32"></a><span class="co">## Computation time: 1.66746e-05 minutes</span></span>
+<span id="cb36-33"><a href="a-complete-example.html#cb36-33"></a><span class="co">## </span></span>
+<span id="cb36-34"><a href="a-complete-example.html#cb36-34"></a><span class="co">## Calculating Dikin ellipsoids for vor2 cells ...</span></span>
+<span id="cb36-35"><a href="a-complete-example.html#cb36-35"></a><span class="co">## 9%	19%	29%	39%	49%</span></span>
+<span id="cb36-36"><a href="a-complete-example.html#cb36-36"></a><span class="co">## 59%	69%	79%	89%	99%</span></span>
+<span id="cb36-37"><a href="a-complete-example.html#cb36-37"></a><span class="co">## 100%</span></span>
+<span id="cb36-38"><a href="a-complete-example.html#cb36-38"></a><span class="co">## Computation time: 1.83782e-05 minutes</span></span>
+<span id="cb36-39"><a href="a-complete-example.html#cb36-39"></a><span class="co">## </span></span>
+<span id="cb36-40"><a href="a-complete-example.html#cb36-40"></a><span class="co">## Calculating max vol incribed ellipsoids for vor1 cells ...</span></span>
+<span id="cb36-41"><a href="a-complete-example.html#cb36-41"></a><span class="co">## 15%	30%	45%	60%	75%</span></span>
+<span id="cb36-42"><a href="a-complete-example.html#cb36-42"></a><span class="co">## 90%	100%</span></span>
+<span id="cb36-43"><a href="a-complete-example.html#cb36-43"></a><span class="co">## Computation time: 3.21834e-05 minutes</span></span>
+<span id="cb36-44"><a href="a-complete-example.html#cb36-44"></a><span class="co">## </span></span>
+<span id="cb36-45"><a href="a-complete-example.html#cb36-45"></a><span class="co">## Calculating max vol incribed ellipsoids for vor2 cells ...</span></span>
+<span id="cb36-46"><a href="a-complete-example.html#cb36-46"></a><span class="co">## 9%	19%	29%	39%	49%</span></span>
+<span id="cb36-47"><a href="a-complete-example.html#cb36-47"></a><span class="co">## 59%	69%	79%	89%	99%</span></span>
+<span id="cb36-48"><a href="a-complete-example.html#cb36-48"></a><span class="co">## 100%</span></span>
+<span id="cb36-49"><a href="a-complete-example.html#cb36-49"></a><span class="co">## Computation time: 8.23573e-05 minutes</span></span></code></pre></div>
+</div>
+<div id="higher-dimensional-settings" class="section level2">
+<h2><span class="header-section-number">3.10</span> Higher-Dimensional Settings</h2>
+<p>When the data dimension <span class="math inline">\(d\)</span> is high several of the Voronoi calculations exposed by <code>VorVQ</code> can be fairly time consuming, particularly the calculation of the Delaunay adjacency and MVIEs (mostly the second-order MVIEs, as there can be many thousand active second-order Voronoi cells in a higher-dimensional tessellation). To mitigate this it is recommended to allow parallel computation (which is allowed by default, see <code>?set_params</code>). To give the user an idea of how long these calculations may take, below we <code>calc_all</code> quantities for the 100-dimensional synthethic <code>SHGR</code> tessellation provided by <code>VorVQ</code> as a higher-dimensional example case (see <code>?SHGR</code> for more details):</p>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="a-complete-example.html#cb37-1"></a><span class="co"># Initialize with SHGR</span></span>
+<span id="cb37-2"><a href="a-complete-example.html#cb37-2"></a>vor =<span class="st"> </span>VOR<span class="op">$</span><span class="kw">new</span>()</span>
+<span id="cb37-3"><a href="a-complete-example.html#cb37-3"></a>vor<span class="op">$</span><span class="kw">initialize_VOR</span>(SHGR<span class="op">$</span>W, SHGR<span class="op">$</span>CADJ)</span>
+<span id="cb37-4"><a href="a-complete-example.html#cb37-4"></a><span class="co">## Initializing Voronoi object</span></span>
+<span id="cb37-5"><a href="a-complete-example.html#cb37-5"></a><span class="co">## ++ storing W and dimensions ... done</span></span>
+<span id="cb37-6"><a href="a-complete-example.html#cb37-6"></a><span class="co">## ++ setting global bounds = +/- 5% of W range ... done</span></span>
+<span id="cb37-7"><a href="a-complete-example.html#cb37-7"></a><span class="co">##    call $set_bounds to change</span></span>
+<span id="cb37-8"><a href="a-complete-example.html#cb37-8"></a><span class="co">## ++ storing CADJ ... done</span></span>
+<span id="cb37-9"><a href="a-complete-example.html#cb37-9"></a><span class="co">## ++ setting active vor1 indices (default to non-empty vor1 cells) ... done</span></span>
+<span id="cb37-10"><a href="a-complete-example.html#cb37-10"></a><span class="co">##    call $set_vor1_active to change</span></span>
+<span id="cb37-11"><a href="a-complete-example.html#cb37-11"></a><span class="co">## ++ setting active vor2 indices (default to non-empty vor2 cells) ... done</span></span>
+<span id="cb37-12"><a href="a-complete-example.html#cb37-12"></a><span class="co">##    call $set_vor2_active to change</span></span>
+<span id="cb37-13"><a href="a-complete-example.html#cb37-13"></a><span class="co">## Calculating Gabriel graph edges ...</span></span>
+<span id="cb37-14"><a href="a-complete-example.html#cb37-14"></a><span class="co">## 10%	20%	30%	40%	50%</span></span>
+<span id="cb37-15"><a href="a-complete-example.html#cb37-15"></a><span class="co">## 60%	70%	80%	90%	100%</span></span>
+<span id="cb37-16"><a href="a-complete-example.html#cb37-16"></a><span class="co">## Computation time: 0.000888026 minutes</span></span>
+<span id="cb37-17"><a href="a-complete-example.html#cb37-17"></a></span>
+<span id="cb37-18"><a href="a-complete-example.html#cb37-18"></a><span class="co"># View number of active 2nd-order Voronoi cells</span></span>
+<span id="cb37-19"><a href="a-complete-example.html#cb37-19"></a><span class="kw">nrow</span>(vor<span class="op">$</span>vor2_active)</span>
+<span id="cb37-20"><a href="a-complete-example.html#cb37-20"></a><span class="co">## [1] 2875</span></span>
+<span id="cb37-21"><a href="a-complete-example.html#cb37-21"></a></span>
+<span id="cb37-22"><a href="a-complete-example.html#cb37-22"></a><span class="co"># Calc all </span></span>
+<span id="cb37-23"><a href="a-complete-example.html#cb37-23"></a>vor<span class="op">$</span><span class="kw">calc_all</span>()</span>
+<span id="cb37-24"><a href="a-complete-example.html#cb37-24"></a><span class="co">## Testing Delaunay graph edges ...</span></span>
+<span id="cb37-25"><a href="a-complete-example.html#cb37-25"></a><span class="co">## Round 1 (9807 edges)	25%	50%	75%	100%	</span></span>
+<span id="cb37-26"><a href="a-complete-example.html#cb37-26"></a><span class="co">## Round 2 (13371 edges)	25%	50%	75%	100%	</span></span>
+<span id="cb37-27"><a href="a-complete-example.html#cb37-27"></a><span class="co">## Round 3 (23379 edges)	25%	50%	75%	100%	</span></span>
+<span id="cb37-28"><a href="a-complete-example.html#cb37-28"></a><span class="co">## Round 4 (7792 edges)	25%	50%	75%	100%	</span></span>
+<span id="cb37-29"><a href="a-complete-example.html#cb37-29"></a><span class="co">## Round 5 (6943 edges)	25%	50%	75%	100%	</span></span>
+<span id="cb37-30"><a href="a-complete-example.html#cb37-30"></a><span class="co">## Round 6 (174 edges)	25%	50%	75%	100%	</span></span>
+<span id="cb37-31"><a href="a-complete-example.html#cb37-31"></a><span class="co">## Tested 61466 of 79800 possible edges</span></span>
+<span id="cb37-32"><a href="a-complete-example.html#cb37-32"></a><span class="co">## Computation time: 1.60014 minutes</span></span>
+<span id="cb37-33"><a href="a-complete-example.html#cb37-33"></a><span class="co">## </span></span>
+<span id="cb37-34"><a href="a-complete-example.html#cb37-34"></a><span class="co">## Calculating Chebyshev centers for vor2 cells ...</span></span>
+<span id="cb37-35"><a href="a-complete-example.html#cb37-35"></a><span class="co">## 9%	19%	29%	39%	49%</span></span>
+<span id="cb37-36"><a href="a-complete-example.html#cb37-36"></a><span class="co">## 59%	69%	79%	89%	99%</span></span>
+<span id="cb37-37"><a href="a-complete-example.html#cb37-37"></a><span class="co">## 100%</span></span>
+<span id="cb37-38"><a href="a-complete-example.html#cb37-38"></a><span class="co">## Computation time: 0.233498 minutes</span></span>
+<span id="cb37-39"><a href="a-complete-example.html#cb37-39"></a><span class="co">## </span></span>
+<span id="cb37-40"><a href="a-complete-example.html#cb37-40"></a><span class="co">## Calculating Dikin ellipsoids for vor1 cells ...</span></span>
+<span id="cb37-41"><a href="a-complete-example.html#cb37-41"></a><span class="co">## 9%	19%	29%	38%	48%</span></span>
+<span id="cb37-42"><a href="a-complete-example.html#cb37-42"></a><span class="co">## 58%	68%	77%	87%	97%</span></span>
+<span id="cb37-43"><a href="a-complete-example.html#cb37-43"></a><span class="co">## 100%</span></span>
+<span id="cb37-44"><a href="a-complete-example.html#cb37-44"></a><span class="co">## Computation time: 0.0019867 minutes</span></span>
+<span id="cb37-45"><a href="a-complete-example.html#cb37-45"></a><span class="co">## </span></span>
+<span id="cb37-46"><a href="a-complete-example.html#cb37-46"></a><span class="co">## Calculating Dikin ellipsoids for vor2 cells ...</span></span>
+<span id="cb37-47"><a href="a-complete-example.html#cb37-47"></a><span class="co">## 9%	19%	29%	39%	49%</span></span>
+<span id="cb37-48"><a href="a-complete-example.html#cb37-48"></a><span class="co">## 59%	69%	79%	89%	99%</span></span>
+<span id="cb37-49"><a href="a-complete-example.html#cb37-49"></a><span class="co">## 100%</span></span>
+<span id="cb37-50"><a href="a-complete-example.html#cb37-50"></a><span class="co">## Computation time: 0.0307555 minutes</span></span>
+<span id="cb37-51"><a href="a-complete-example.html#cb37-51"></a><span class="co">## </span></span>
+<span id="cb37-52"><a href="a-complete-example.html#cb37-52"></a><span class="co">## Calculating max vol incribed ellipsoids for vor1 cells ...</span></span>
+<span id="cb37-53"><a href="a-complete-example.html#cb37-53"></a><span class="co">## 9%	19%	29%	38%	48%</span></span>
+<span id="cb37-54"><a href="a-complete-example.html#cb37-54"></a><span class="co">## 58%	68%	77%	87%	97%</span></span>
+<span id="cb37-55"><a href="a-complete-example.html#cb37-55"></a><span class="co">## 100%</span></span>
+<span id="cb37-56"><a href="a-complete-example.html#cb37-56"></a><span class="co">## Computation time: 1.24407 minutes</span></span>
+<span id="cb37-57"><a href="a-complete-example.html#cb37-57"></a><span class="co">## </span></span>
+<span id="cb37-58"><a href="a-complete-example.html#cb37-58"></a><span class="co">## Calculating max vol incribed ellipsoids for vor2 cells ...</span></span>
+<span id="cb37-59"><a href="a-complete-example.html#cb37-59"></a><span class="co">## 4%	9%	14%	19%	24%</span></span>
+<span id="cb37-60"><a href="a-complete-example.html#cb37-60"></a><span class="co">## 29%	34%	39%	44%	49%</span></span>
+<span id="cb37-61"><a href="a-complete-example.html#cb37-61"></a><span class="co">## 54%	59%	64%	69%	74%</span></span>
+<span id="cb37-62"><a href="a-complete-example.html#cb37-62"></a><span class="co">## 79%	84%	89%	94%	99%</span></span>
+<span id="cb37-63"><a href="a-complete-example.html#cb37-63"></a><span class="co">## 100%</span></span>
+<span id="cb37-64"><a href="a-complete-example.html#cb37-64"></a><span class="co">## Computation time: 28.2546 minutes</span></span></code></pre></div>
+<p>The MVIE calculation for the 2,875 second-order Voronoi cells required approximately 30 minutes of parallel computation with 15 available threads on a 2.4 GHz 8-Core Intel Core i9 processor running Mac OS Catalina (10.15.6). If these processing times are prohibitive, the user may instead compute <em>approximate</em> MVIEs, which are optimized over only the ellipsoidal rotations (i.e., not jointly with the centers, which remain fixed at their starting values). This modification, controlled by setting the parameter <code>MVIE_fix_c0 = T</code>, see <code>?set_params</code>) can result in significant computational savings (at the expense of volumetric precision), as shown below:</p>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="a-complete-example.html#cb38-1"></a>vor<span class="op">$</span><span class="kw">set_params</span>(<span class="kw">list</span>(<span class="dt">MVIE_fix_c0 =</span> T))</span>
+<span id="cb38-2"><a href="a-complete-example.html#cb38-2"></a>vor<span class="op">$</span><span class="kw">calc_vor2_MVIE</span>()</span>
+<span id="cb38-3"><a href="a-complete-example.html#cb38-3"></a><span class="co">## Calculating max vol incribed ellipsoids for vor2 cells ...</span></span>
+<span id="cb38-4"><a href="a-complete-example.html#cb38-4"></a><span class="co">## 4%	9%	14%	19%	24%</span></span>
+<span id="cb38-5"><a href="a-complete-example.html#cb38-5"></a><span class="co">## 29%	34%	39%	44%	49%</span></span>
+<span id="cb38-6"><a href="a-complete-example.html#cb38-6"></a><span class="co">## 54%	59%	64%	69%	74%</span></span>
+<span id="cb38-7"><a href="a-complete-example.html#cb38-7"></a><span class="co">## 79%	84%	89%	94%	99%</span></span>
+<span id="cb38-8"><a href="a-complete-example.html#cb38-8"></a><span class="co">## 100%</span></span>
+<span id="cb38-9"><a href="a-complete-example.html#cb38-9"></a><span class="co">## Computation time: 13.7345 minutes</span></span></code></pre></div>
+
+<!-- # References {-} -->
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references">
+<div id="ref-Chacon2009">
+<p>[12] J. E. Chacón, “Data-driven choice of the smoothing parametrization for kernel density estimators,” <em>Canadian Journal of Statistics</em>, vol. 37, no. 2, pp. 249–265, 2009.</p>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="secInstallation.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["VorVQ.README.pdf"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
