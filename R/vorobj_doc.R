@@ -64,6 +64,8 @@
 #' \item{\code{calc_all}}{Compute all Voronoi quantities}
 #' \item{\code{save}}{Save a VOR object to disk}
 #' \item{\code{load}}{Load a previously saved VOR object from disk}
+#' \item{\code{as_list}}{Convert and return all fields of a VOR object to an R list.}
+#' \item{\code{load_list}}{Populate an instance of a VOR object from an R list.}
 #' }
 #' 
 NULL
@@ -495,7 +497,22 @@ NULL
 #' @usage VORobj$load(vorfile)
 NULL 
 
+#' @name as_list
+#' @title Convert an VOR object to a list 
+#' @description This method extracts all fields of an VOR object and places their stored values 
+#' into the fields of an R list, with list field names matching the VOR object field names. 
+#' @return A list
+#' @usage VORobj$as_list()
+NULL 
 
+#' @name load_list 
+#' @title Populate a VOR object from a list 
+#' @description This method populates all fields of a VOR object from the fields of an R list object. 
+#' The list must have field names which exactly match the VOR field names. 
+#' @param VORList a VOR object converted to a list, e.g., with \code{as_list}
+#' @return None
+#' @usage VORobj$load_list(VORList)
+NULL 
 
 
 

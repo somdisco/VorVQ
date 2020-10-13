@@ -95,8 +95,11 @@ See their documentation for more information.
 \item{\code{calc_vor2_MVIE}}{Compute the Maximum Volume Inscribed Ellipsoids (MVIE) of the active second-order Voronoi cells}
 \item{\code{calc_vor1_Dikin}}{Compute the Dikin Ellipsoids of the active first-order Voronoi cells}
 \item{\code{calc_vor2_Dikin}}{Compute the Dikin Ellipsoids of the active second-order Voronoi cells}
+\item{\code{calc_all}}{Compute all Voronoi quantities}
 \item{\code{save}}{Save a VOR object to disk}
 \item{\code{load}}{Load a previously saved VOR object from disk}
+\item{\code{as_list}}{Convert and return all fields of a VOR object to an R list.}
+\item{\code{load_list}}{Populate an instance of a VOR object from an R list.}
 }
 }
 

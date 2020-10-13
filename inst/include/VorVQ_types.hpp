@@ -251,6 +251,8 @@ public:
   // IO 
   void save(std::string rdsfile);
   void load(std::string rdsfile); 
+  Rcpp::List as_list(); 
+  void load_list(Rcpp::List VORList); 
   
 };
 
@@ -753,6 +755,28 @@ inline void VOR::save(std::string rdsfile) {
   if(rdsend.size() > rdsfile.size() || !std::equal(rdsend.rbegin(), rdsend.rend(), rdsfile.rbegin()))
     Rcpp::stop("Save file string must have extension .vor");
   
+  Rcpp::List VORList = this->as_list(); 
+  
+  Rcpp::Environment base = Rcpp::Environment::namespace_env("base");
+  Rcpp::Function saveRDS = base["saveRDS"];
+  saveRDS(Rcpp::wrap(VORList), Rcpp::Named("file", rdsfile));
+  
+  return; 
+}
+
+inline void VOR::load(std::string rdsfile) {
+  
+  Rcpp::Environment base = Rcpp::Environment::namespace_env("base");
+  Rcpp::Function readRDS = base["readRDS"];
+  Rcpp::List VORList = readRDS(Rcpp::Named("file", rdsfile));
+  
+  this->load_list(VORList); 
+  
+  return; 
+}
+
+inline Rcpp::List VOR::as_list() {
+  
   Rcpp::List VORList; 
   
   VORList["params_parallel"] = this->params.parallel; 
@@ -808,72 +832,64 @@ inline void VOR::save(std::string rdsfile) {
   VORList["isset_vor1_Dikin"] = this->isset_vor1_Dikin; 
   VORList["isset_vor2_Dikin"] = this->isset_vor2_Dikin; 
   
+  return VORList; 
   
-  Rcpp::Environment base = Rcpp::Environment::namespace_env("base");
-  Rcpp::Function saveRDS = base["saveRDS"];
-  saveRDS(Rcpp::wrap(VORList), Rcpp::Named("file", rdsfile));
-  
-  return; 
 }
 
-inline void VOR::load(std::string rdsfile) {
-  
-  Rcpp::Environment base = Rcpp::Environment::namespace_env("base");
-  Rcpp::Function readRDS = base["readRDS"];
-  Rcpp::List invor = readRDS(Rcpp::Named("file", rdsfile));
+inline void VOR::load_list(Rcpp::List VORList) {
   
   VOR_params_container par; 
-  par.parallel = Rcpp::as<bool>(invor["params_parallel"]);
-  par.MVIE_maxiter = Rcpp::as<int>(invor["params_MVIE_maxiter"]);
-  par.MVIE_tol = Rcpp::as<double>(invor["params_MVIE_tol"]);
-  par.MVIE_fix_c0 = Rcpp::as<bool>(invor["params_MVIE_fix_c0"]);
-  par.seed_DADJ = Rcpp::as<bool>(invor["params_seed_DADJ"]);
+  par.parallel = Rcpp::as<bool>(VORList["params_parallel"]);
+  par.MVIE_maxiter = Rcpp::as<int>(VORList["params_MVIE_maxiter"]);
+  par.MVIE_tol = Rcpp::as<double>(VORList["params_MVIE_tol"]);
+  par.MVIE_fix_c0 = Rcpp::as<bool>(VORList["params_MVIE_fix_c0"]);
+  par.seed_DADJ = Rcpp::as<bool>(VORList["params_seed_DADJ"]);
   this->params = par; 
   
   // Prototypes & bounds 
-  this->W = Rcpp::as<arma::mat>(invor["W"]); 
-  this->nW = Rcpp::as<unsigned int>(invor["nW"]); 
-  this->d = Rcpp::as<unsigned int>(invor["d"]); 
-  this->lb = Rcpp::as<arma::vec>(invor["lb"]); 
-  this->ub = Rcpp::as<arma::vec>(invor["ub"]); 
-  this->CADJ = Rcpp::as<arma::umat>(invor["CADJ"]); 
-  this->GADJ = Rcpp::as<arma::umat>(invor["GADJ"]); 
+  this->W = Rcpp::as<arma::mat>(VORList["W"]); 
+  this->nW = Rcpp::as<unsigned int>(VORList["nW"]); 
+  this->d = Rcpp::as<unsigned int>(VORList["d"]); 
+  this->lb = Rcpp::as<arma::vec>(VORList["lb"]); 
+  this->ub = Rcpp::as<arma::vec>(VORList["ub"]); 
+  this->CADJ = Rcpp::as<arma::umat>(VORList["CADJ"]); 
+  this->GADJ = Rcpp::as<arma::umat>(VORList["GADJ"]); 
   
-  this->vor1_active = Rcpp::as<arma::uvec>(invor["vor1_active"]); 
-  this->vor2_active = Rcpp::as<arma::umat>(invor["vor2_active"]); 
+  this->vor1_active = Rcpp::as<arma::uvec>(VORList["vor1_active"]); 
+  this->vor2_active = Rcpp::as<arma::umat>(VORList["vor2_active"]); 
   
-  this->DADJ = Rcpp::as<arma::umat>(invor["DADJ"]); 
+  this->DADJ = Rcpp::as<arma::umat>(VORList["DADJ"]); 
   
-  this->vor1_centers = Rcpp::as<arma::mat>(invor["vor1_centers"]); 
-  this->vor2_centers = Rcpp::as<arma::mat>(invor["vor2_centers"]);
+  this->vor1_centers = Rcpp::as<arma::mat>(VORList["vor1_centers"]); 
+  this->vor2_centers = Rcpp::as<arma::mat>(VORList["vor2_centers"]);
   
-  this->vor1_MVIE_c = Rcpp::as<arma::mat>(invor["vor1_MVIE_c"]); 
-  this->vor1_MVIE_E = Rcpp::as<arma::cube>(invor["vor1_MVIE_E"]);
-  this->vor1_MVIE_logdet = Rcpp::as<arma::vec>(invor["vor1_MVIE_logdet"]);
-  this->vor1_MVIE_volratio = Rcpp::as<arma::vec>(invor["vor1_MVIE_volratio"]); 
-  this->vor1_MVIE_status = Rcpp::as<arma::ivec>(invor["vor1_MVIE_status"]);
+  this->vor1_MVIE_c = Rcpp::as<arma::mat>(VORList["vor1_MVIE_c"]); 
+  this->vor1_MVIE_E = Rcpp::as<arma::cube>(VORList["vor1_MVIE_E"]);
+  this->vor1_MVIE_logdet = Rcpp::as<arma::vec>(VORList["vor1_MVIE_logdet"]);
+  this->vor1_MVIE_volratio = Rcpp::as<arma::vec>(VORList["vor1_MVIE_volratio"]); 
+  this->vor1_MVIE_status = Rcpp::as<arma::ivec>(VORList["vor1_MVIE_status"]);
   
-  this->vor2_MVIE_c = Rcpp::as<arma::mat>(invor["vor2_MVIE_c"]); 
-  this->vor2_MVIE_E = Rcpp::as<arma::cube>(invor["vor2_MVIE_E"]);
-  this->vor2_MVIE_logdet = Rcpp::as<arma::vec>(invor["vor2_MVIE_logdet"]);
-  this->vor2_MVIE_volratio = Rcpp::as<arma::vec>(invor["vor2_MVIE_volratio"]); 
-  this->vor2_MVIE_status = Rcpp::as<arma::ivec>(invor["vor2_MVIE_status"]);
+  this->vor2_MVIE_c = Rcpp::as<arma::mat>(VORList["vor2_MVIE_c"]); 
+  this->vor2_MVIE_E = Rcpp::as<arma::cube>(VORList["vor2_MVIE_E"]);
+  this->vor2_MVIE_logdet = Rcpp::as<arma::vec>(VORList["vor2_MVIE_logdet"]);
+  this->vor2_MVIE_volratio = Rcpp::as<arma::vec>(VORList["vor2_MVIE_volratio"]); 
+  this->vor2_MVIE_status = Rcpp::as<arma::ivec>(VORList["vor2_MVIE_status"]);
   
-  this->vor1_Dikin_E = Rcpp::as<arma::cube>(invor["vor1_Dikin_E"]); 
-  this->vor2_Dikin_E = Rcpp::as<arma::cube>(invor["vor2_Dikin_E"]); 
+  this->vor1_Dikin_E = Rcpp::as<arma::cube>(VORList["vor1_Dikin_E"]); 
+  this->vor2_Dikin_E = Rcpp::as<arma::cube>(VORList["vor2_Dikin_E"]); 
   
-  this->vis_par = Rcpp::as<Rcpp::List>(invor["vis_par"]);
+  this->vis_par = Rcpp::as<Rcpp::List>(VORList["vis_par"]);
   
-  this->isinit = Rcpp::as<bool>(invor["isinit"]);
-  this->isset_GADJ = Rcpp::as<bool>(invor["isset_GADJ"]);
-  this->isset_DADJ = Rcpp::as<bool>(invor["isset_DADJ"]);
-  this->isset_vor2_centers = Rcpp::as<bool>(invor["isset_vor2_centers"]);
-  this->isset_vor1_MVIE = Rcpp::as<bool>(invor["isset_vor1_MVIE"]);
-  this->isset_vor2_MVIE = Rcpp::as<bool>(invor["isset_vor2_MVIE"]);
-  this->isset_vor1_Dikin = Rcpp::as<bool>(invor["isset_vor1_Dikin"]);
-  this->isset_vor2_Dikin = Rcpp::as<bool>(invor["isset_vor2_Dikin"]);
+  this->isinit = Rcpp::as<bool>(VORList["isinit"]);
+  this->isset_GADJ = Rcpp::as<bool>(VORList["isset_GADJ"]);
+  this->isset_DADJ = Rcpp::as<bool>(VORList["isset_DADJ"]);
+  this->isset_vor2_centers = Rcpp::as<bool>(VORList["isset_vor2_centers"]);
+  this->isset_vor1_MVIE = Rcpp::as<bool>(VORList["isset_vor1_MVIE"]);
+  this->isset_vor2_MVIE = Rcpp::as<bool>(VORList["isset_vor2_MVIE"]);
+  this->isset_vor1_Dikin = Rcpp::as<bool>(VORList["isset_vor1_Dikin"]);
+  this->isset_vor2_Dikin = Rcpp::as<bool>(VORList["isset_vor2_Dikin"]);
   
-  return; 
+  
 }
   
 #endif

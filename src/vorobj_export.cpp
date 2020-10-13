@@ -95,7 +95,8 @@ RCPP_MODULE(vor_module){
     // Save & Load 
     .method("save", &VOR::save, "Save a VOR object to disk")
     .method("load", &VOR::load, "Load a VOR object from disk")
-
+    .method("as_list", &VOR::as_list, "Convert a VOR object to an R list")
+    .method("load_list", &VOR::load_list, "Populate a VOR object from an R list")
     ;
 }
 
